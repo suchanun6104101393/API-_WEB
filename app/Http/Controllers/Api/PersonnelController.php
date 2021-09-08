@@ -42,6 +42,7 @@ class PersonnelController extends Controller
     public function show(Personnel $personnel)
     {
         return response()->json($personnel);
+        
     }
 
     /**
