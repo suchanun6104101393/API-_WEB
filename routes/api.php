@@ -2,7 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controller\Api\NewsController;
+use App\Models\news;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -19,3 +20,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::apiResource('personnel','Api\PersonnelController'); //Personnel
+Route::resource('news','Api\NewsController'); //news
+Route::resource('complain','Api\ComplainController'); //complain
+
+
+
+
+

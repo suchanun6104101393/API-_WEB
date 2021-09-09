@@ -9,6 +9,9 @@ class Personnel extends Model
 {
     protected $primaryKey = 'personnelID'; //ตัวชี้ column
     protected $table = 'personnel';     //ตัวชี้table
+ 
+ 
+    
    // protected  = ['firstName'] ;
     use HasFactory;
 }

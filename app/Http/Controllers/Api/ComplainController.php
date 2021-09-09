@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers\Api;
 
-
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Personnel;
+use App\Models\Complain;
 
-class PersonnelController extends Controller
+class ComplainController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,11 +14,9 @@ class PersonnelController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-   
     {
-    
-        $personnel = Personnel::all();
-        return response()->json($personnel);
+        $complain = Complain::all();
+        return response()->json($complain);
     }
 
     /**
@@ -30,7 +27,13 @@ class PersonnelController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'Complain_Detail' => 'required',
+            'Complain_Date' => 'required',
+            'Complain_Picture' => 'required',
+            'Complain_Title' => 'required'
+        ]);
+        return Complain::create($request->all());
     }
 
     /**
@@ -39,12 +42,9 @@ class PersonnelController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Personnel $personnel )
+    public function show(Complian $complain)
     {
-        return response()->json($personnel);
-      
-        
-        
+        return response()->json($complain);
     }
 
     /**

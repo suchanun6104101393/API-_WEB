@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers\Api;
 
-
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Personnel;
+use App\Models\News;
 
-class PersonnelController extends Controller
+class NewsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,11 +14,9 @@ class PersonnelController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-   
     {
-    
-        $personnel = Personnel::all();
-        return response()->json($personnel);
+        $news = News::all();
+        return response()->json($news);
     }
 
     /**
@@ -30,7 +27,17 @@ class PersonnelController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'News_Detail' => 'required',
+            'News_Date' => 'required',
+            'News_Time' => 'required',
+            'News_Picture' => 'required',
+            'News_File' => 'required',
+            'News_Date' => 'required',
+            'News_links' => 'required',
+            'News_Type' => 'required'
+        ]);
+        return News::create($request->all());
     }
 
     /**
@@ -39,12 +46,9 @@ class PersonnelController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Personnel $personnel )
+    public function show(News $news )
     {
-        return response()->json($personnel);
-      
-        
-        
+        return response()->json($news);
     }
 
     /**
