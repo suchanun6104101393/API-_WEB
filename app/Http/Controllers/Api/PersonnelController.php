@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Api;
 
-
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Personnel;
@@ -15,9 +14,7 @@ class PersonnelController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-   
     {
-    
         $personnel = Personnel::all();
         return response()->json($personnel);
     }
@@ -30,7 +27,33 @@ class PersonnelController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'citizenId' => 'required',
+            'titleName' => 'required',
+            'titlePosition' => 'required',
+            'firstName' => 'required',
+            'lastName' => 'required',
+            'titleNameEn' => 'required',
+            'fistNameEn' => 'required',
+            'lastNameEn' => 'required',
+            'gender' => 'required',
+            'personnelType' => 'required',
+            'positionType' => 'required',
+            'position' => 'required',
+            'faculty' => 'required',
+            'educationLevel' => 'required',
+            'titleEducation' => 'required',
+            'education' => 'required',
+            'major' => 'required',
+            'university' => 'required',
+            'e_mail' => 'required',
+            'personnelPhoto' => 'required',
+            'portfolioResearch' => 'required',
+            'adminPosition' => 'required',
+            'phoneNumber' => 'required',
+            'Type' => 'required',
+        ]);
+        return Personnel::create($request->all());
     }
 
     /**
@@ -39,12 +62,9 @@ class PersonnelController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Personnel $personnel )
+    public function show($id)
     {
-        return response()->json($personnel);
-      
-        
-        
+        return Personnel::find($id);
     }
 
     /**
@@ -56,7 +76,9 @@ class PersonnelController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $personnel = Personnel::find($id);
+        $personnel->update($request->all());
+        return $personnel;
     }
 
     /**
@@ -67,6 +89,10 @@ class PersonnelController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return Personnel::destroy($id);
+    }
+    public function search($Type)
+    {
+        return Personnel::where("Type","like","%".$Type."%")->get();
     }
 }

@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Complain;
+use App\Models\Classroom;
 
-class ComplainController extends Controller
+class ClassroomController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class ComplainController extends Controller
      */
     public function index()
     {
-        $complain = Complain::all();
-        return response()->json($complain);
+        $classroom = Classroom::all();
+        return response()->json($classroom);
     }
 
     /**
@@ -28,12 +28,13 @@ class ComplainController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'Complain_Detail' => 'required',
-            'Complain_Date' => 'required',
-            'Complain_Picture' => 'required',
-            'Complain_Title' => 'required'
+            'Classroom_Name' => 'required',
+            'Classroom_Type' => 'required',
+            'Classroom_Number' => 'required',
+            'Classroom_sit' => 'required',
+            'Classroom_Detail' => 'required'
         ]);
-        return Complain::create($request->all());
+        return Classroom::create($request->all());
     }
 
     /**
@@ -44,8 +45,7 @@ class ComplainController extends Controller
      */
     public function show($id)
     {
-        return Complain::find($id);
-
+        return Classroom::find($id);
     }
 
     /**
@@ -57,7 +57,9 @@ class ComplainController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $classroom = Classroom::find($id);
+        $classroom->update($request->all());
+        return $classroom;
     }
 
     /**
@@ -68,8 +70,10 @@ class ComplainController extends Controller
      */
     public function destroy($id)
     {
-        return Complain::destroy($id);
+        return Classroom::destroy($id);
     }
-    
-
+    public function search($Classroom_Type)
+    {
+        return Classroom::where("Classroom_Type","like","%".$Classroom_Type."%")->get();
+    }
 }

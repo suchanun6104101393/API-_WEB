@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\News;
 
+
+
 class NewsController extends Controller
 {
     /**
@@ -46,9 +48,9 @@ class NewsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(News $news )
+    public function show($id)
     {
-        return response()->json($news);
+        return News::find($id);
     }
 
     /**
@@ -58,9 +60,11 @@ class NewsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,  $id)
     {
-        //
+        $news = News::find($id);
+        $news->update($request->all());
+        return $news;
     }
 
     /**
@@ -71,6 +75,10 @@ class NewsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return News::destroy($id);
+    }
+    public function search($News_Type)
+    {
+        return News::where("News_Type","like","%".$News_Type."%")->get();
     }
 }
