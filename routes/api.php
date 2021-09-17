@@ -6,10 +6,12 @@ use App\Http\Controller\Api\NewsController;
 use App\Http\Controller\Api\PersonnelController;
 use App\Http\Controller\Api\ClassroomController;
 use App\Http\Controller\Api\ComplainController;
+use App\Http\Controller\Api\ActivityController;
 use App\Models\news;
 use App\Models\personnel;
 use App\Models\classroom;
 use App\Models\Complain;
+use App\Models\Activity;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -56,6 +58,12 @@ Route::get("complainid/{id}",[\App\Http\Controllers\Api\ComplainController::clas
 Route::post("complainadd",[\App\Http\Controllers\Api\ComplainController::class,'store']); 
 Route::delete("complaindelete/{id}",[\App\Http\Controllers\Api\ComplainController::class,'destroy']); 
 
+// Route from Activity
+Route::get("activity",[\App\Http\Controllers\Api\ActivityController::class,'index']);
+Route::get("activity/{id}",[\App\Http\Controllers\Api\ActivityController::class,'show']);  
+Route::post("activityadd",[\App\Http\Controllers\Api\ActivityController::class,'store']);
+Route::put("activityedit/{id}",[\App\Http\Controllers\Api\ActivityController::class,'update']); 
+Route::delete("activitydelete/{id}",[\App\Http\Controllers\Api\ActivityController::class,'destroy']); 
 
 
 

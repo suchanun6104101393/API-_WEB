@@ -28,7 +28,7 @@ class PersonnelController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'citizenId' => 'required',
+            'citizenId' => 'required|min:13',
             'titleName' => 'required',
             'titlePosition' => 'required',
             'firstName' => 'required',

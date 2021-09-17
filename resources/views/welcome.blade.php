@@ -32,6 +32,8 @@ h1{
     color:#46A5E5 ;
     text-align: center;
 }
+
+
 </style>
 </head>
 <body>
@@ -47,15 +49,38 @@ h1{
     <td><a href="https://wwwdev.csmju.com/api/personnel">https://wwwdev.csmju.com/api/personnel</a></td>
   </tr>
   <tr>
+    <td>personnel/{type}</td>
+    <td><a href="https://wwwdev.csmju.com/api/personnel">https://wwwdev.csmju.com/api/personnel/teacher</a></td>
+  </tr>
+  <tr>
+    <td>personnel/{type}</td>
+    <td><a href="https://wwwdev.csmju.com/api/personnel">https://wwwdev.csmju.com/api/personnel/staff</a></td>
+  </tr>
+  <tr>
     <td>News</td>
     <td><a href="https://wwwdev.csmju.com/api/news">https://wwwdev.csmju.com/api/news</a></td>
   </tr>
+  
   <tr>
     <td>Complain</td>
     <td><a href="https://wwwdev.csmju.com/api/complain">https://wwwdev.csmju.com/api/complain</a></td>
   </tr>
-
+  <tr>
+    <td>Classroom</td>
+    <td><a href="https://wwwdev.csmju.com/api/classroom">https://wwwdev.csmju.com/api/classroom</a></td>
+  </tr>
+  <tr>
+    <td>Activity</td>
+    <td><a href="https://wwwdev.csmju.com/api/activity">https://wwwdev.csmju.com/api/activity</a></td>
+  </tr>
 </table>
+<h2>Note !!</h2>
+<a>
+  function put post delete  <br>
+  post = .......add        (http://127.0.0.1:8000/api/........add)  <br>
+  put = .......edit        (http://127.0.0.1:8000/api/........edit)  <br>
+  delete = .......delete        (http://127.0.0.1:8000/api/........delete)  <br>
+</a>
 
 </body>
 </html>
