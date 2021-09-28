@@ -7,6 +7,7 @@ use App\Http\Controller\Api\PersonnelController;
 use App\Http\Controller\Api\ClassroomController;
 use App\Http\Controller\Api\ComplainController;
 use App\Http\Controller\Api\ActivityController;
+use App\Http\Controller\Api\AuthController;
 use App\Models\news;
 use App\Models\personnel;
 use App\Models\classroom;
@@ -22,14 +23,26 @@ use App\Models\Activity;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::group(['middleware' => 'auth:sanctum'], function(){
+        Route::post("logout",[\App\Http\Controllers\AuthController::class,'logout']);
 });
 
-//Route from Personnel
 
-Route::get("personnel",[\App\Http\Controllers\Api\PersonnelController::class,'index']);
+
+
+
+Route::post("register",[\App\Http\Controllers\AuthController::class,'register']);
+Route::post("login",[\App\Http\Controllers\AuthController::class,'login']);
+
+
+
+
+/* Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+    return $request->user();
+}); */
+
+//Route from Personnel
+ Route::get("personnel",[\App\Http\Controllers\Api\PersonnelController::class,'index']);
 Route::get("personnel/{type}",[\App\Http\Controllers\Api\PersonnelController::class,'search']);
 Route::get("personnelid/{id}",[\App\Http\Controllers\Api\PersonnelController::class,'show']);
 Route::put("personneledit/{id}",[\App\Http\Controllers\Api\PersonnelController::class,'update']); 
