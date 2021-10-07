@@ -8,11 +8,13 @@ use App\Http\Controller\Api\ClassroomController;
 use App\Http\Controller\Api\ComplainController;
 use App\Http\Controller\Api\ActivityController;
 use App\Http\Controller\Api\AuthController;
+use App\Http\Controllers\EquipmentController;
 use App\Models\news;
 use App\Models\personnel;
 use App\Models\classroom;
 use App\Models\Complain;
 use App\Models\Activity;
+use App\Models\Equipment;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -27,10 +29,6 @@ Route::group(['middleware' => 'auth:sanctum'], function(){
         Route::post("logout",[\App\Http\Controllers\AuthController::class,'logout']);
 });
 
-
-
-
-
 Route::post("register",[\App\Http\Controllers\AuthController::class,'register']);
 Route::post("login",[\App\Http\Controllers\AuthController::class,'login']);
 
@@ -42,7 +40,7 @@ Route::post("login",[\App\Http\Controllers\AuthController::class,'login']);
 }); */
 
 //Route from Personnel
- Route::get("personnel",[\App\Http\Controllers\Api\PersonnelController::class,'index']);
+Route::get("personnel",[\App\Http\Controllers\Api\PersonnelController::class,'index']);
 Route::get("personnel/{type}",[\App\Http\Controllers\Api\PersonnelController::class,'search']);
 Route::get("personnelid/{id}",[\App\Http\Controllers\Api\PersonnelController::class,'show']);
 Route::put("personneledit/{id}",[\App\Http\Controllers\Api\PersonnelController::class,'update']); 
@@ -77,6 +75,14 @@ Route::get("activity/{id}",[\App\Http\Controllers\Api\ActivityController::class,
 Route::post("activityadd",[\App\Http\Controllers\Api\ActivityController::class,'store']);
 Route::put("activityedit/{id}",[\App\Http\Controllers\Api\ActivityController::class,'update']); 
 Route::delete("activitydelete/{id}",[\App\Http\Controllers\Api\ActivityController::class,'destroy']); 
+
+// Route from Equipment
+Route::get("equipment",[\App\Http\Controllers\Api\EquipmentController::class,'index']);
+Route::get("equipment/{id}",[\App\Http\Controllers\Api\EquipmentController::class,'show']);  
+Route::get("equipments/{Equipment_Type}",[\App\Http\Controllers\Api\EquipmentController::class,'search']);
+Route::put("equipmentedit/{id}",[\App\Http\Controllers\Api\EquipmentController::class,'update']); 
+Route::post("equipmentadd",[\App\Http\Controllers\Api\EquipmentController::class,'store']); 
+Route::delete("equipmentdelete/{id}",[\App\Http\Controllers\Api\EquipmentController::class,'destroy']); 
 
 
 

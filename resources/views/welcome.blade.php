@@ -73,6 +73,10 @@ h1{
     <td>Activity</td>
     <td><a href="https://wwwdev.csmju.com/api/activity">https://wwwdev.csmju.com/api/activity</a></td>
   </tr>
+  <tr>
+    <td>Equipment</td>
+    <td><a href="https://wwwdev.csmju.com/api/equipment">https://wwwdev.csmju.com/api/equipment</a></td>
+  </tr>
 </table>
 <h2>Note !!</h2>
 <a>
