@@ -79,17 +79,17 @@ Route::delete("activitydelete/{id}",[\App\Http\Controllers\Api\ActivityControlle
 // Route from Equipment
 Route::get("equipment",[\App\Http\Controllers\Api\EquipmentController::class,'index']);
 Route::get("equipment/{id}",[\App\Http\Controllers\Api\EquipmentController::class,'show']);  
-Route::get("equipments/{Equipment_Type}",[\App\Http\Controllers\Api\EquipmentController::class,'search']);
+Route::get("equipments/{Equipment_Name}",[\App\Http\Controllers\Api\EquipmentController::class,'search']);
 Route::put("equipmentedit/{id}",[\App\Http\Controllers\Api\EquipmentController::class,'update']); 
 Route::post("equipmentadd",[\App\Http\Controllers\Api\EquipmentController::class,'store']); 
 Route::delete("equipmentdelete/{id}",[\App\Http\Controllers\Api\EquipmentController::class,'destroy']); 
 
-
-
-
-
-
-
+// Route from Subject
+Route::get("subject",[\App\Http\Controllers\Api\SubjectController::class,'index']);
+Route::get("subject/{id}",[\App\Http\Controllers\Api\SubjectController::class,'show']);
+Route::put("subjectedit/{id}",[\App\Http\Controllers\Api\SubjectController::class,'update']); 
+Route::post("subjectadd",[\App\Http\Controllers\Api\SubjectController::class,'store']); 
+Route::delete("subjectdelete/{id}",[\App\Http\Controllers\Api\SubjectController::class,'destroy']); 
 
 
 

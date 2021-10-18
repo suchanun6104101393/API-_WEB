@@ -81,8 +81,8 @@ class EquipmentController extends Controller
     {
         return Equipment::destroy($id);
     }
-    public function search($Equipment_Type)
+    public function search($Equipment_Name)
     {
-        return Equipment::where("Equipment_Type","like","%".$Equipment_Type."%")->get();
+        return Equipment::where("Equipment_Name","like","%".$Equipment_Name."%")->get();
     }
 }
