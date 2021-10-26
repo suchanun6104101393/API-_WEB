@@ -60,6 +60,10 @@ h1{
     <td>News</td>
     <td><a href="https://wwwdev.csmju.com/api/news">https://wwwdev.csmju.com/api/news</a></td>
   </tr>
+  <tr>
+    <td>Newsapp</td>
+    <td><a href="https://wwwdev.csmju.com/api/newsapp">https://wwwdev.csmju.com/api/newsapp</a></td>
+  </tr>
   
   <tr>
     <td>Complain</td>
@@ -81,6 +85,11 @@ h1{
     <td>Subject</td>
     <td><a href="https://wwwdev.csmju.com/api/subject">https://wwwdev.csmju.com/api/subject</a></td>
   </tr>
+  <tr>
+    <td>Material</td>
+    <td><a href="https://wwwdev.csmju.com/api/material">https://wwwdev.csmju.com/api/material</a></td>
+  </tr>
+  
 </table>
 <h2>Note !!</h2>
 <a>

@@ -4,13 +4,9 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\News;
-use Image;
+use App\Models\NewsApp;
 
-
-
-
-class NewsController extends Controller
+class NewsAppController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,8 +15,8 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $news = News::paginate(25);
-        return response()->json($news);
+        $newsapp = Newsapp::all();
+        return response()->json($newsapp);
     }
 
     /**
@@ -41,7 +37,7 @@ class NewsController extends Controller
             'News_links' => 'required',
             'News_Type' => 'required'
         ]);
-        $data_news = array(
+        $data_newsapp = array(
             'News_Detail' => $request->input('News_Detail'),
             'News_Date' => $request->input('News_Date'),
             'News_Time' => $request->input('News_Time'),
@@ -74,7 +70,7 @@ class NewsController extends Controller
         }else{
         $data_news['image'] = url('/').'/images/news/thumbnail/no_img.jpg';
         }
-        return News::create($request->all());
+        return Newsapp::create($request->all());
     }
 
     /**
@@ -85,7 +81,7 @@ class NewsController extends Controller
      */
     public function show($id)
     {
-        return News::find($id);
+        return Newsapp::find($id);
     }
 
     /**
@@ -97,9 +93,9 @@ class NewsController extends Controller
      */
     public function update(Request $request,  $id)
     {
-        $news = News::find($id);
-        $news->update($request->all());
-        return $news;
+        $newsapp = Newsapp::find($id);
+        $newsapp->update($request->all());
+        return $newsapp;
     }
 
     /**
@@ -110,10 +106,10 @@ class NewsController extends Controller
      */
     public function destroy($id)
     {
-        return News::destroy($id);
+        return Newsapp::destroy($id);
     }
     public function search($News_Type)
     {
-        return News::where("News_Type","like","%".$News_Type."%")->paginate(25);
+        return Newsapp::where("News_Type","like","%".$News_Type."%")->get();
     }
 }

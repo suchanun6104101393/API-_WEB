@@ -63,6 +63,14 @@ Route::put("newsedit/{id}",[\App\Http\Controllers\Api\NewsController::class,'upd
 Route::post("newsadd",[\App\Http\Controllers\Api\NewsController::class,'store']); 
 Route::delete("newsdelete/{id}",[\App\Http\Controllers\Api\NewsController::class,'destroy']); 
 
+// Route from Newsapp
+Route::get("newsapp",[\App\Http\Controllers\Api\NewsAppController::class,'index']);
+Route::get("newsapp/{News_Type}",[\App\Http\Controllers\Api\NewsAppController::class,'search']);
+Route::get("newsappid/{id}",[\App\Http\Controllers\Api\NewsAppController::class,'show']); 
+Route::put("newsappedit/{id}",[\App\Http\Controllers\Api\NewsAppController::class,'update']); 
+Route::post("newsappadd",[\App\Http\Controllers\Api\NewsAppController::class,'store']); 
+Route::delete("newsappdelete/{id}",[\App\Http\Controllers\Api\NewsAppController::class,'destroy']); 
+
 // Route from Complain
 Route::get("complain",[\App\Http\Controllers\Api\ComplainController::class,'index']);
 Route::get("complainid/{id}",[\App\Http\Controllers\Api\ComplainController::class,'show']); 
@@ -91,8 +99,10 @@ Route::put("subjectedit/{id}",[\App\Http\Controllers\Api\SubjectController::clas
 Route::post("subjectadd",[\App\Http\Controllers\Api\SubjectController::class,'store']); 
 Route::delete("subjectdelete/{id}",[\App\Http\Controllers\Api\SubjectController::class,'destroy']); 
 
-
-
-
-
-
+// Route from Material
+Route::get("material",[\App\Http\Controllers\Api\MaterialController::class,'index']);
+Route::get("material/{id}",[\App\Http\Controllers\Api\MaterialController::class,'show']);  
+Route::get("materials/{Material_Name}",[\App\Http\Controllers\Api\MaterialController::class,'search']);
+Route::put("materialedit/{id}",[\App\Http\Controllers\Api\MaterialController::class,'update']); 
+Route::post("materialadd",[\App\Http\Controllers\Api\MaterialController::class,'store']); 
+Route::delete("materialdelete/{id}",[\App\Http\Controllers\Api\MaterialController::class,'destroy']); 
