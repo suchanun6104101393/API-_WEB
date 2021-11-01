@@ -61,6 +61,7 @@ Route::get("news/{News_Type}",[\App\Http\Controllers\Api\NewsController::class,'
 Route::get("newsid/{id}",[\App\Http\Controllers\Api\NewsController::class,'show']); 
 Route::put("newsedit/{id}",[\App\Http\Controllers\Api\NewsController::class,'update']); 
 Route::post("newsadd",[\App\Http\Controllers\Api\NewsController::class,'store']); 
+Route::post("upimage",[\App\Http\Controllers\Api\NewsController::class,'upimage']); 
 Route::delete("newsdelete/{id}",[\App\Http\Controllers\Api\NewsController::class,'destroy']); 
 
 // Route from Newsapp

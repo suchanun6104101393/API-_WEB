@@ -55,23 +55,27 @@ class NewsController extends Controller
         $News_Picture = $request->file('file');
         if(!empty($News_Picture)){
           
-            $file_name = "news_".time().".".$News_Picture->getClientOriginalExtension();
-            $imgWidth = 400;
-            $imgHeight = 400;
-            $folderupload = public_path('/images/news/thumbnail');
-            $path = $folderupload."/".$file_name;
-            // อัพโหลดเข้าสู่ folder thumbnail
-            $img = Image::make($News_Picture->getRealPath());
-            $img->orientate()->fit($imgWidth,$imgHeight, function($constraint){
-                $constraint->upsize();
+            $post = new News();
 
-            });
-            $img->save($path);
-            // อัพโหลดภาพต้นฉบับเข้า folder original
-            $destinationPath = public_path('/images/news/original');
-            $News_Picture->move($destinationPath, $file_name);
-            // กำหนด path รูปเพื่อใส่ตารางในฐานข้อมูล
-            $data_news['News_Picture'] = url('/').'/images/news/thumbnail/'.$file_name;
+            if($request->hasFile('News_Picture')){
+                //pic
+                $completeFileName = $request->file('News_Picture')->getClientOriginalName();
+                $fileNameOnly = pathinfo($completeFileName, PATHINFO_FILENAME);
+                $ext = $request->file('News_Picture')->getClientOriginalExtension();
+                $compPic = str_replace(' ', '_', $fileNameOnly).'.'. $ext;
+                $path = $request->file('News_Picture')->move(public_path('images/news/original'), $compPic);
+                $post->News_Picture = $compPic;
+                $post->News_Detail = $request['News_Detail'];    
+            }
+        if($post->save()){
+            return response()->json([
+                'message' => "Successfully created",
+                'success' => true,
+                'data' => $post
+            ], 200);
+        }else {
+            return ['status' => false, 'message' => 'Post Somthing Wented Wrong'];
+        };
             
         }else{
       
@@ -118,5 +122,30 @@ class NewsController extends Controller
     public function search($News_Type)
     {
         return News::where("News_Type","like","%".$News_Type."%")->paginate(25);
+    }
+
+    public function upimage(Request $request){
+        $post = new News();
+
+        if($request->hasFile('News_Picture')){
+            //pic
+            $completeFileName = $request->file('News_Picture')->getClientOriginalName();
+            $fileNameOnly = pathinfo($completeFileName, PATHINFO_FILENAME);
+            $ext = $request->file('News_Picture')->getClientOriginalExtension();
+            $compPic = str_replace(' ', '_', $fileNameOnly).'.'. $ext;
+            $path = $request->file('News_Picture')->move(public_path('images/news/original'), $compPic);
+            $post->News_Picture = $compPic;
+            $post->News_Detail = $request['News_Detail'];    
+        }
+        if($post->save()){
+        return response()->json([
+            'message' => "Successfully created",
+            'success' => true,
+            'data' => $post
+        ], 200);
+        }  else {
+        return ['status' => false, 'message' => 'Post Somthing Wented Wrong'];
+        };
+
     }
 }
