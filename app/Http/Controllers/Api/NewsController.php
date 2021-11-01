@@ -35,12 +35,13 @@ class NewsController extends Controller
             'News_Detail' => 'required',
             'News_Date' => 'required',
             'News_Time' => 'required',
-            'News_Picture' => 'required',
+           
             'News_Title' => 'required',
             'News_File' => 'required',
             'News_links' => 'required',
             'News_Type' => 'required'
         ]);
+
         $data_news = array(
             'News_Detail' => $request->input('News_Detail'),
             'News_Date' => $request->input('News_Date'),
@@ -51,15 +52,16 @@ class NewsController extends Controller
             'News_Type' => $request->input('News_Type'),
             
         );
-        $image = $request->file('News_Picture');
-        if(!empty($image)){
-            $file_name = "news_".time().".".$image->getClientOriginalExtension();
+        $News_Picture = $request->file('file');
+        if(!empty($News_Picture)){
+          
+            $file_name = "news_".time().".".$News_Picture->getClientOriginalExtension();
             $imgWidth = 400;
             $imgHeight = 400;
             $folderupload = public_path('/images/news/thumbnail');
             $path = $folderupload."/".$file_name;
-
-            $img = Image::make($image->getRealPath());
+            // อัพโหลดเข้าสู่ folder thumbnail
+            $img = Image::make($News_Picture->getRealPath());
             $img->orientate()->fit($imgWidth,$imgHeight, function($constraint){
                 $constraint->upsize();
 
@@ -67,14 +69,15 @@ class NewsController extends Controller
             $img->save($path);
             // อัพโหลดภาพต้นฉบับเข้า folder original
             $destinationPath = public_path('/images/news/original');
-            $image->move($destinationPath, $file_name);
+            $News_Picture->move($destinationPath, $file_name);
             // กำหนด path รูปเพื่อใส่ตารางในฐานข้อมูล
             $data_news['News_Picture'] = url('/').'/images/news/thumbnail/'.$file_name;
             
         }else{
-        $data_news['image'] = url('/').'/images/news/thumbnail/no_img.jpg';
+      
+        $data_news['News_Picture'] = url('/').'/images/news/thumbnail/no_img.jpg';
         }
-        return News::create($request->all());
+        return News::create($data_news);
     }
 
     /**
