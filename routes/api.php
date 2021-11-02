@@ -17,7 +17,7 @@ use App\Models\Activity;
 use App\Models\Equipment;
 /*
 |--------------------------------------------------------------------------
-| API Routes
+| API Routesne
 |--------------------------------------------------------------------------
 |
 | Here is where you can register API routes for your application. These
