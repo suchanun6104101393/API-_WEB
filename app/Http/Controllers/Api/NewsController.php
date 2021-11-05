@@ -75,7 +75,9 @@ class NewsController extends Controller
             // อัพโหลดภาพต้นฉบับเข้า folder original
             $destinationPath = public_path('/images/news/original');
             $News_Picture->move($destinationPath, $file_name);
-            
+
+            //ทำยังไงก็ได้ให้รูปตกที่publicข้างนอก
+            //ตรงนี้ไม่ต้องแก้
             // กำหนด path รูปเพื่อใส่ตารางในฐานข้อมูล
             $data_news['News_Picture'] = url('/').'/images/news/thumbnail/'.$file_name;
                 
