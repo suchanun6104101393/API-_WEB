@@ -8,13 +8,17 @@ use App\Http\Controllers\NewsController;
 
 class News extends Model
 {
-    // protected $primaryKey = 'newsId'; //ตัวชี้ column
-    // protected $table = 'news_csmju';     //ตัวชี้table
-    // protected $guarded = ['newsId'];  //post
-    public $timestamps = false; // no timestamps
     use HasFactory;
-    protected $table = "news_csmju";
-    protected $fillable = [
+    protected $primaryKey = 'newsId';
+    protected $table = 'news_csmju';     //ตัวชี้table
+    protected $guarded = ['newsId'];  //post
+    public $timestamps = false; // no timestamps
+   
+   
+   
+   
+    // protected $table = "news_csmju";
+   /*  protected $fillable = [
         'News_Detail',
         'News_Date',
         'News_Time',
@@ -23,5 +27,5 @@ class News extends Model
         'News_File',
         'News_links',
         'News_Type',
-    ];
+    ]; */
 }
