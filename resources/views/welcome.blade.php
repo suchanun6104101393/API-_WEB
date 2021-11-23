@@ -20,15 +20,16 @@ body {font-size:16px;}
   </div>
   <div class="w3-bar-block">
     <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a> 
-    <a href="#personnel" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Personnel</a> 
-    <a href="#news" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">News</a> 
+    <a href="#personnel" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Personnel(บุคลากร)</a> 
+    <a href="#news" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">News(ข่าวสาร)</a> 
     <a href="#newsapp" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Newsapp</a> 
-    <a href="#complain" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Complain</a> 
-    <a href="#classroom" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Classroom</a>
-    <a href="#activity" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Activity</a>
-    <a href="#equipment" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Equipment</a>
-    <a href="#subject" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Subject</a>
-    <a href="#material" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Material</a>
+    <a href="#complain" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Complain(ติดต่อหลักสูตร)</a> 
+    <a href="#classroom" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Classroom(ห้องเรียน)</a>
+    <a href="#activity" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Activity(กิจกรรม)</a>
+    <a href="#equipment" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Equipment(ครุภัณฑ์)</a>
+    <a href="#subject" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Subject(หลักสูตร)</a>
+    <a href="#material" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Material(วัสดุอุปกรณ์)</a>
+    <a href="#alumni" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Alumni (ศิษย์เก่า)</a>
   </div>
 </nav>
 
@@ -48,8 +49,8 @@ body {font-size:16px;}
   <div class="w3-container" style="margin-top:80px" id="personnel">
     <h2 class="w3-jumbo"><b>API COMPUTURE SCIENCE</b></h2>
     <h5>Post = .......add(http://wwwdev.csmju.com/api/........add)</h5>
-    <h5>Put = .......Put(http://wwwdev.csmju.com/api/........edit)</h5>
-    <h5>delete = .......add(http://wwwdev.csmju.com/api/........delete)</h5>
+    <h5>Put = .......edit(http://wwwdev.csmju.com/api/........edit)</h5>
+    <h5>delete = .......delete(http://wwwdev.csmju.com/api/........delete)</h5>
     <h2 class="w3-xxxlarge w3-text-blue"><b>Personnel.</b></h2>
     <hr style="width:50px;border:5px solid blue" class="w3-round">
   </div>
@@ -138,6 +139,19 @@ body {font-size:16px;}
     <div class="w3-half">
       <h3>Link API : </h3> 
      <h3> <a  href="https://wwwdev.csmju.com/api/material" >https://wwwdev.csmju.com/api/material</a></h3>
+    </div>
+  </div>
+
+  <!-- alumni -->
+  <div class="w3-container" id="alumni" style="margin-top:75px">
+    <h2 class="w3-xxxlarge w3-text-blue"><b>Alumni.</b></h2>
+    <hr style="width:50px;border:5px solid blue" class="w3-round">
+    <div class="w3-half">
+      <h3>Link API : </h3> 
+     <h3> <a  href="https://wwwdev.csmju.com/api/alumni" >https://wwwdev.csmju.com/api/alumni</a></h3>
+     serch
+     <h3> <a  href="https://wwwdev.csmju.com/api/alumni/name/..." >https://wwwdev.csmju.com/api/alumni/name/...</a></h3>
+     <h3> <a  href="https://wwwdev.csmju.com/api/alumni/workplace/..." >https://wwwdev.csmju.com/api/alumni/workplace/...</a></h3>
     </div>
   </div>
 

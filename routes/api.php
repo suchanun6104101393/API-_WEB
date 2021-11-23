@@ -107,3 +107,13 @@ Route::get("materials/{Material_Name}",[\App\Http\Controllers\Api\MaterialContro
 Route::put("materialedit/{id}",[\App\Http\Controllers\Api\MaterialController::class,'update']); 
 Route::post("materialadd",[\App\Http\Controllers\Api\MaterialController::class,'store']); 
 Route::delete("materialdelete/{id}",[\App\Http\Controllers\Api\MaterialController::class,'destroy']); 
+
+//Route from Alumni
+Route::get("alumni",[\App\Http\Controllers\Api\AlumniController::class,'index']);
+Route::get("alumni/{id}",[\App\Http\Controllers\Api\AlumniController::class,'show']);  
+Route::get("alumni/name/{Firstname_Alumni}",[\App\Http\Controllers\Api\AlumniController::class,'search']);
+Route::get("alumni/workplace/{Workplace}",[\App\Http\Controllers\Api\AlumniController::class,'search2']);
+Route::put("alumniedit/{id}",[\App\Http\Controllers\Api\AlumniController::class,'update']); 
+Route::post("alumniadd",[\App\Http\Controllers\Api\AlumniController::class,'store']); 
+Route::delete("alumnidelete/{id}",[\App\Http\Controllers\Api\AlumniController::class,'destroy']); 
+
