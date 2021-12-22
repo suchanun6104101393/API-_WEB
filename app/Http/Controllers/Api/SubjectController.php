@@ -72,4 +72,11 @@ class SubjectController extends Controller
     {
         return Subject::destroy($id);
     }
+
+    public function search($Subject_Detail)
+    {
+        return Subject::where("Subject_Detail","like","%".$Subject_Detail."%")->get();
+    }
+
+    
 }

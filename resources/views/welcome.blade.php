@@ -30,6 +30,7 @@ body {font-size:16px;}
     <a href="#subject" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Subject(หลักสูตร)</a>
     <a href="#material" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Material(วัสดุอุปกรณ์)</a>
     <a href="#alumni" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Alumni (ศิษย์เก่า)</a>
+    <a href="#banner" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Banner (แบรนเนอร์)</a>
   </div>
 </nav>
 
@@ -154,7 +155,15 @@ body {font-size:16px;}
      <h3> <a  href="https://wwwdev.csmju.com/api/alumni/workplace/..." >https://wwwdev.csmju.com/api/alumni/workplace/...</a></h3>
     </div>
   </div>
-
+  <!-- banner -->
+  <div class="w3-container" id="banner" style="margin-top:75px">
+      <h2 class="w3-xxxlarge w3-text-blue"><b>Banner.</b></h2>
+      <hr style="width:50px;border:5px solid blue" class="w3-round">
+      <div class="w3-half">
+        <h3>Link API : </h3> 
+      <h3> <a  href="https://wwwdev.csmju.com/api/banner" >https://wwwdev.csmju.com/api/banner</a></h3>
+      </div>
+    </div>
 
 
 

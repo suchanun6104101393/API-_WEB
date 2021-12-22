@@ -31,6 +31,7 @@ Route::group(['middleware' => 'auth:sanctum'], function(){
 
 Route::post("register",[\App\Http\Controllers\AuthController::class,'register']);
 Route::post("login",[\App\Http\Controllers\AuthController::class,'login']);
+Route::get("loginapp",[\App\Http\Controllers\AuthController::class,'index']);
 
 
 
@@ -61,7 +62,7 @@ Route::get("news/{News_Type}",[\App\Http\Controllers\Api\NewsController::class,'
 Route::get("newsid/{id}",[\App\Http\Controllers\Api\NewsController::class,'show']); 
 Route::put("newsedit/{id}",[\App\Http\Controllers\Api\NewsController::class,'update']); 
 Route::post("newsadd",[\App\Http\Controllers\Api\NewsController::class,'store']); 
-Route::post("upimage",[\App\Http\Controllers\Api\NewsController::class,'upimage']); 
+//Route::post("upimage",[\App\Http\Controllers\Api\NewsController::class,'upimage']); 
 Route::delete("newsdelete/{id}",[\App\Http\Controllers\Api\NewsController::class,'destroy']); 
 
 // Route from Newsapp
@@ -95,10 +96,12 @@ Route::delete("equipmentdelete/{id}",[\App\Http\Controllers\Api\EquipmentControl
 
 // Route from Subject
 Route::get("subject",[\App\Http\Controllers\Api\SubjectController::class,'index']);
-Route::get("subject/{id}",[\App\Http\Controllers\Api\SubjectController::class,'show']);
+Route::get("subjectid/{id}",[\App\Http\Controllers\Api\SubjectController::class,'show']);
 Route::put("subjectedit/{id}",[\App\Http\Controllers\Api\SubjectController::class,'update']); 
 Route::post("subjectadd",[\App\Http\Controllers\Api\SubjectController::class,'store']); 
 Route::delete("subjectdelete/{id}",[\App\Http\Controllers\Api\SubjectController::class,'destroy']); 
+Route::get("subject/{Subject_Detail}",[\App\Http\Controllers\Api\SubjectController::class,'search']);
+
 
 // Route from Material
 Route::get("material",[\App\Http\Controllers\Api\MaterialController::class,'index']);
@@ -117,3 +120,15 @@ Route::put("alumniedit/{id}",[\App\Http\Controllers\Api\AlumniController::class,
 Route::post("alumniadd",[\App\Http\Controllers\Api\AlumniController::class,'store']); 
 Route::delete("alumnidelete/{id}",[\App\Http\Controllers\Api\AlumniController::class,'destroy']); 
 
+//Route from banner
+Route::get("banner",[\App\Http\Controllers\Api\BannerController::class,'index']);
+Route::get("banner/{id}",[\App\Http\Controllers\Api\BannerController::class,'show']);  
+Route::delete("bannerdelete/{id}",[\App\Http\Controllers\Api\BannerController::class,'destroy']); 
+Route::post("banneradd",[\App\Http\Controllers\Api\BannerController::class,'store']); 
+
+//13/12/2564
+//Route from ActivityPic
+Route::get("activitypic",[\App\Http\Controllers\Api\ActivityPicController::class,'index']);
+Route::get("activitypic/{id}",[\App\Http\Controllers\Api\ActivityPicController::class,'show']);  
+Route::post("activitypicadd",[\App\Http\Controllers\Api\ActivityPicController::class,'store']); 
+Route::delete("activitypicdelete/{id}",[\App\Http\Controllers\Api\ActivityPicController::class,'destroy']); 

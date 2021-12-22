@@ -12,7 +12,7 @@ class AlumniController extends Controller
 {
     public function index()
     {
-        $alumni = Alumni::paginate(10);;
+        $alumni = Alumni::paginate(50);;
         return response()->json($alumni);
     }
     public function store(Request $request){
@@ -84,7 +84,7 @@ class AlumniController extends Controller
     }
     public function search2($Workplace)
     {
-        return Alumni::where("Workplace","like","%".$Workplace."%")->paginate(10);
+        return Alumni::where("Workplace","like","%".$Workplace."%")->paginate(50);
     }
     
 }
