@@ -50,16 +50,16 @@ class NewsAppController extends Controller
         $image = $request->file('News_Picture');
         if(!empty($image)){
             $file_name = "news_".time().".".$image->getClientOriginalExtension();
-            $imgWidth = 400;
-            $imgHeight = 400;
+           /*  $imgWidth = 400;
+            $imgHeight = 400; */
             $folderupload = public_path('/images/news/thumbnail');
             $path = $folderupload."/".$file_name;
 
             $img = Image::make($image->getRealPath());
-            $img->orientate()->fit($imgWidth,$imgHeight, function($constraint){
+           /*  $img->orientate()->fit($imgWidth,$imgHeight, function($constraint){
                 $constraint->upsize();
 
-            });
+            }); */
             $img->save($path);
             // อัพโหลดภาพต้นฉบับเข้า folder original
             $destinationPath = public_path('/images/news/original');

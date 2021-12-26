@@ -45,15 +45,15 @@ class NewsController extends Controller
             // เปลี่ยนชื่อรูปที่ได้
             $file_name = "news_".time().".".$News_Picture->getClientOriginalExtension();
             // กำหนดขนาดความกว้าง และสูง ของภาพที่ต้องการย่อขนาด
-            $imgWidth = 400;
-            $imgHeight = 400;
+            /* $imgWidth = 400;
+            $imgHeight = 400; */
             $folderupload = public_path('/images/news/thumbnail');
             $path = $folderupload."/".$file_name;
             // อัพโหลดเข้าสู่ folder thumbnail
             $img = Image::make($News_Picture->getRealPath());
-            $img->orientate()->fit($imgWidth,$imgHeight, function($constraint){
+           /*  $img->orientate()->fit($imgWidth,$imgHeight, function($constraint){
                 $constraint->upsize();
-            });
+            }); */
             $img->save($path);
             // อัพโหลดภาพต้นฉบับเข้า folder original
             $destinationPath = public_path('/images/news/original');
