@@ -103,7 +103,6 @@ class NewsController extends Controller
 //ของพี่เจ
 /* public function upimage(Request $request){
     $post = new News();
-
     if($request->hasFile('News_Picture')){
         
         $completeFileName = $request->file('News_Picture')->getClientOriginalName();
@@ -112,7 +111,6 @@ class NewsController extends Controller
         $compPic = str_replace(' ', '_', $fileNameOnly).'.'. $ext;
         $path = $request->file('News_Picture')->move(('/home/wwwdev/www/testAPI2/public/images/news/original'), $compPic);
         $post->News_Picture = $compPic;
-
         $post->News_Detail = $request['News_Detail'];    
         $post->News_Date = $request['News_Date'];    
         $post->News_Time = $request['News_Time'];    
@@ -120,7 +118,6 @@ class NewsController extends Controller
         $post->News_Title = $request['News_Title'];    
         $post->News_links = $request['News_link'];    
         $post->News_Type = $request['News_Type'];    
-
         
     }
     if($post->save()){
@@ -132,5 +129,4 @@ class NewsController extends Controller
     }  else {
     return ['status' => false, 'message' => 'Post Somthing Wented Wrong'];
     };
-
 } */

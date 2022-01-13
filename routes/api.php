@@ -27,6 +27,7 @@ use App\Models\Equipment;
 */
 Route::group(['middleware' => 'auth:sanctum'], function(){
         Route::post("logout",[\App\Http\Controllers\AuthController::class,'logout']);
+       // Route::get("personnel",[\App\Http\Controllers\Api\PersonnelController::class,'index']);
 });
 
 Route::post("register",[\App\Http\Controllers\AuthController::class,'register']);
