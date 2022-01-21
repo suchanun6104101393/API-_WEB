@@ -69,7 +69,7 @@ body {font-size:16px;}
     <hr style="width:50px;border:5px solid blue" class="w3-round">
     <div class="w3-half">
       <h3>Link API : </h3> 
-     <h3> <a  href="https://wwwdev.csmju.com/api/news" >https://wwwdev.csmju.com/api/news</a></h3>
+     <h3> <a  "https://wwwdev.csmju.com/api/news" >https://wwwdev.csmju.com/api/news</a></h3>
     </div>
   </div>
   
