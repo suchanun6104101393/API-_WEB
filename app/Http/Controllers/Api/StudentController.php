@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Classroom;
+use App\Models\Student;
 use Image;
 
-class ClassroomController extends Controller
+class StudentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,8 @@ class ClassroomController extends Controller
      */
     public function index()
     {
-        $classroom = Classroom::all();
-        return response()->json($classroom);
+        $student = Student::all();
+        return response()->json($student);
     }
 
     /**
@@ -28,47 +28,54 @@ class ClassroomController extends Controller
      */
     public function store(Request $request){
         $request->validate([
-            'Classroom_Name' => 'required',
-            'Classroom_Type' => 'required',
-            'Classroom_Number' => 'required',
-            'Classroom_sit' => 'required',
-            'Classroom_Detail' => 'required',
+            'studentCode' => 'required',
+            'nameTh' => 'required',
+            'surnameTh' => 'required',
+            'nameEn' => 'required',
+            'surnameEn' => 'required',
+            'EmailStudent' => 'required',
+            'mobile' => 'required',
+            'Address' => 'required',
+           
         ]);
-        $data_classroom = array(
-            'Classroom_Name' => $request->input('Classroom_Name'),
-            'Classroom_Type' => $request->input('Classroom_Type'),
-            'Classroom_Number' => $request->input('Classroom_Number'),
-            'Classroom_sit' => $request->input('Classroom_sit'),
-            'Classroom_Detail' => $request->input('Classroom_Detail'),
+        $data_picture = array(
+            'studentCode' => $request->input('studentCode'),
+            'nameTh' => $request->input('nameTh'),
+            'surnameTh' => $request->input('surnameTh'),
+            'nameEn' => $request->input('nameEn'),
+            'surnameEn' => $request->input('surnameEn'),
+            'EmailStudent' => $request->input('EmailStudent'),
+            'mobile' => $request->input('mobile'),
+            'Address' => $request->input('Address'),
+           
         );
-        $Classroom_Images = $request->file('Classroom_Images');
-        if(!empty($Classroom_Images)){
+        $PictureProfile = $request->file('PictureProfile');
+        if(!empty($PictureProfile)){
             // อัพโหลดรูปภาพ
             // เปลี่ยนชื่อรูปที่ได้
-            $file_name = "classroom_".time().".".$Classroom_Images->getClientOriginalExtension();
+            $file_name = "StudentPic_".time().".".$PictureProfile->getClientOriginalExtension();
             // กำหนดขนาดความกว้าง และสูง ของภาพที่ต้องการย่อขนาด
             /* $imgWidth = 400;
             $imgHeight = 400; */
-            $folderupload = public_path('/images/classroom/thumbnail');
+            $folderupload = public_path('/images/student/thumbnail');
             $path = $folderupload."/".$file_name;
             // อัพโหลดเข้าสู่ folder thumbnail
-            $img = Image::make($Classroom_Images->getRealPath());
+            $img = Image::make($PictureProfile->getRealPath());
            /*  $img->orientate()->fit($imgWidth,$imgHeight, function($constraint){
                 $constraint->upsize();
             }); */
             $img->save($path);
             // อัพโหลดภาพต้นฉบับเข้า folder original
-            $destinationPath = public_path('/images/classroom/original');
-            $Classroom_Images->move($destinationPath, $file_name);
+            $destinationPath = public_path('/images/student/original');
+            $PictureProfile->move($destinationPath, $file_name);
             // กำหนด path รูปเพื่อใส่ตารางในฐานข้อมูล
-            $data_classroom['Classroom_Images'] = url('/').'/images/classroom/thumbnail/'.$file_name;
+            $data_picture['PictureProfile'] = url('/').'/images/student/thumbnail/'.$file_name;
             }else{
-            $data_classroom['Classroom_Images'] = url('/').'/images/classroom/thumbnail/no_img.jpg';
+            $data_picture['PictureProfile'] = url('/').'/images/student/thumbnail/no_img.jpg';
             }
-            return Classroom::create($data_classroom);
+            return Student::create($data_picture);
         
     }
-
 
     /**
      * Display the specified resource.
@@ -78,7 +85,7 @@ class ClassroomController extends Controller
      */
     public function show($id)
     {
-        return Classroom::find($id);
+        return Student::find($id);
     }
 
     /**
@@ -90,9 +97,9 @@ class ClassroomController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $classroom = Classroom::find($id);
-        $classroom->update($request->all());
-        return $classroom;
+        $student = Student::find($id);
+        $student->update($request->all());
+        return $student;
     }
 
     /**
@@ -103,10 +110,6 @@ class ClassroomController extends Controller
      */
     public function destroy($id)
     {
-        return Classroom::destroy($id);
-    }
-    public function search($Classroom_Type)
-    {
-        return Classroom::where("Classroom_Type","like","%".$Classroom_Type."%")->get();
+        return Student::destroy($id);
     }
 }

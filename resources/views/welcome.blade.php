@@ -19,6 +19,7 @@ body {font-size:16px;}
   <div class="w3-bar-block">
     <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a> 
     <a href="#personnel" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Personnel(บุคลากร)</a> 
+    <a href="#student" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Student(นักศึกษา)</a> 
     <a href="#news" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">News(ข่าวสาร)</a> 
     <a href="#newsapp" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Newsapp</a> 
     <a href="#complain" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Complain(ติดต่อหลักสูตร)</a> 
@@ -46,7 +47,7 @@ body {font-size:16px;}
     <h2 class="w3-xxxlarge w3-text-grey"><b>Personnel.</b></h2>
     <hr style="width:50px;border:5px solid blue" class="w3-round">
 </div>
-  
+
 <!-- pesonnel -->
   <div class="w3-row-padding">
     <div class="w3-half">
@@ -93,6 +94,52 @@ body {font-size:16px;}
     </tr>
   </table>
   </div>
+
+ <!-- Student -->
+  <div class="w3-container" id="student" style="margin-top:75px">
+    <h2 class="w3-xxxlarge w3-text-grey"><b>Student.</b></h2>
+    <hr style="width:50px;border:5px solid blue" class="w3-round">
+    <div class="w3-row-padding">
+    <div class="w3-half">
+    <table class="w3-table w3-striped w3-bordered">
+    <tr>
+      <th>Host</th>
+      <th>Path</th>
+      <th>Method</th>
+    </tr>
+    <tr>
+      <td>https://wwwdev.csmju.com/api/</td>
+      <td>student</td>
+      <td><a  href="https://wwwdev.csmju.com/api/student" button class="w3-button w3-yellow">Get</button></td>
+    </tr>
+
+    <tr>
+      <td></td>
+      <td>student/id/{id}</td>
+      <td><button class="w3-button w3-yellow">Get</button></td>
+    </tr>
+
+    <tr>
+      <td></td>
+      <td>student/create</td>
+      <td><button class="w3-button w3-green">Post</button></td>
+    </tr>
+
+    <tr>
+      <td></td>
+      <td>student/update/{id}</td>
+      <td><button class="w3-button w3-purple">Put</button></td>
+    </tr>
+
+    <tr>
+      <td></td>
+      <td>student/delete/{id}</td>
+      <td><button class="w3-button w3-red">Delete</button></td>
+    </tr>
+  </table>
+  </div>
+  </div>
+  
 
   <!-- news -->
   <div class="w3-container" id="news" style="margin-top:75px">

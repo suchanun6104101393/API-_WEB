@@ -117,6 +117,19 @@ Route::get("activitypic/{id}",[\App\Http\Controllers\Api\ActivityPicController::
 Route::post("activitypic/create",[\App\Http\Controllers\Api\ActivityPicController::class,'store']); 
 Route::delete("activitypic/delete/{id}",[\App\Http\Controllers\Api\ActivityPicController::class,'destroy']); 
 
+//Route  ActivityPic
+Route::get("student",[\App\Http\Controllers\Api\StudentController::class,'index']);
+Route::get("student/id/{id}",[\App\Http\Controllers\Api\StudentController::class,'show']);  
+Route::put("student/update/{id}",[\App\Http\Controllers\Api\StudentController::class,'update']); 
+Route::post("student/create",[\App\Http\Controllers\Api\StudentController::class,'store']); 
+Route::delete("student/delete/{id}",[\App\Http\Controllers\Api\StudentController::class,'destroy']); 
+
+
+
+
+
+
+
 /* Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 }); */
