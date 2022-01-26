@@ -140,8 +140,6 @@ class StudentController extends Controller
             $PictureProfile->move($destinationPath, $file_name);
             // กำหนด path รูปเพื่อใส่ตารางในฐานข้อมูล
             $data_picture['PictureProfile'] = url('/').'/images/student/thumbnail/'.$file_name;
-            }else{
-            $data_picture['PictureProfile'] = url('/').'/images/student/thumbnail/no_img.jpg';
             }
 
             $student = Student::find($id);

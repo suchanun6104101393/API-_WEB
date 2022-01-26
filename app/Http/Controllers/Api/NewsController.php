@@ -107,8 +107,6 @@ class NewsController extends Controller
             $News_Picture->move($destinationPath, $file_name);
             // กำหนด path รูปเพื่อใส่ตารางในฐานข้อมูล
             $data_news['News_Picture'] = url('/').'/images/news/thumbnail/'.$file_name;
-            }else{
-            $data_news['News_Picture'] = url('/').'/images/news/thumbnail/no_img.jpg';
             }
             $news = News::find($id);
             $news->update($data_news);

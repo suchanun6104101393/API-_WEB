@@ -133,8 +133,6 @@ class NewsAppController extends Controller
             // กำหนด path รูปเพื่อใส่ตารางในฐานข้อมูล
             $data_news['News_Picture'] = url('/').'/images/news/thumbnail/'.$file_name;
             
-        }else{
-        $data_news['image'] = url('/').'/images/news/thumbnail/no_img.jpg';
         }
             $newsapp = Newsapp::find($id);
             $newsapp->update($data_news);

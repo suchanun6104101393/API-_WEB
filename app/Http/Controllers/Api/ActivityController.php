@@ -140,8 +140,6 @@ class ActivityController extends Controller
             $Activity_Picture->move($destinationPath, $file_name);
             // กำหนด path รูปเพื่อใส่ตารางในฐานข้อมูล
             $data_activity['Activity_Picture'] = url('/').'/images/activitypic/thumbnail/'.$file_name;
-            }else{
-            $data_activity['Activity_Picture'] = url('/').'/images/activitypic/thumbnail/no_img.jpg';
             }
             $activity = Activity::find($id);
             $activity->update($data_activity);

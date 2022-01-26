@@ -109,8 +109,6 @@ class AlumniController extends Controller
             $Alumni_Picture->move($destinationPath, $file_name);
             // กำหนด path รูปเพื่อใส่ตารางในฐานข้อมูล
             $data_Alumni['Alumni_Picture'] = url('/').'/images/Alumni/thumbnail/'.$file_name;
-            }else{
-            $data_Alumni['Alumni_Picture'] = url('/').'/images/Alumni/thumbnail/no_img.jpg';
             }
             $alumni = Alumni::find($id);
             $alumni->update($data_Alumni);
