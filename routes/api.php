@@ -18,10 +18,6 @@ use App\Models\Equipment;
 
 Route::group(['middleware' => 'auth:sanctum'], function(){
         Route::post("logout",[\App\Http\Controllers\AuthController::class,'logout']);
-        // Route Banner //
-        Route::post("banner/create",[\App\Http\Controllers\Api\BannerController::class,'store']); 
-        Route::delete("banner/delete/{id}",[\App\Http\Controllers\Api\BannerController::class,'destroy']);  
-
         // Route Personnel //
         Route::get("personnel",[\App\Http\Controllers\Api\PersonnelController::class,'index']);
         Route::get("personnel/{type}",[\App\Http\Controllers\Api\PersonnelController::class,'search']);
@@ -103,6 +99,9 @@ Route::group(['middleware' => 'auth:sanctum'], function(){
         // Route Banner //
         Route::get("banner",[\App\Http\Controllers\Api\BannerController::class,'index']);
         Route::get("banner/id/{id}",[\App\Http\Controllers\Api\BannerController::class,'show']);  
+        Route::post("banner/create",[\App\Http\Controllers\Api\BannerController::class,'store']); 
+        Route::delete("banner/delete/{id}",[\App\Http\Controllers\Api\BannerController::class,'destroy']);  
+
 
         //Route  ActivityPic
         Route::get("activitypic",[\App\Http\Controllers\Api\ActivityPicController::class,'index']);
@@ -118,6 +117,11 @@ Route::group(['middleware' => 'auth:sanctum'], function(){
         Route::delete("student/delete/{id}",[\App\Http\Controllers\Api\StudentController::class,'destroy']); 
         Route::get("student/{studentCode}",[\App\Http\Controllers\Api\StudentController::class,'search']); 
 
+        Route::get("residaual",[\App\Http\Controllers\Api\ResidaualController::class,'index']);
+        Route::get("residaual/id/{id}",[\App\Http\Controllers\Api\ResidaualController::class,'show']); 
+        Route::post("residaual/create",[\App\Http\Controllers\Api\ResidaualController::class,'store']); 
+        Route::delete("residaual/delete/{id}",[\App\Http\Controllers\Api\ResidaualController::class,'destroy']); 
+
         
 });
 
@@ -125,7 +129,6 @@ Route::post("register",[\App\Http\Controllers\AuthController::class,'register'])
 Route::post("login",[\App\Http\Controllers\AuthController::class,'login']);
 
 //////////////////////////////// public route ///////////////////////////////////////
-
 
 
 
