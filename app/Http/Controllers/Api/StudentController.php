@@ -16,7 +16,7 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $student = Student::all();
+        $student = Student::paginate(50);
         return response()->json($student);
     }
 
@@ -97,9 +97,56 @@ class StudentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $student = Student::find($id);
-        $student->update($request->all());
-        return $student;
+        $request->validate([
+            'studentCode' => 'required',
+            'nameTh' => 'required',
+            'surnameTh' => 'required',
+            'nameEn' => 'required',
+            'surnameEn' => 'required',
+            'EmailStudent' => 'required',
+            'mobile' => 'required',
+            'Address' => 'required',
+           
+        ]);
+        $data_picture = array(
+            'studentCode' => $request->input('studentCode'),
+            'nameTh' => $request->input('nameTh'),
+            'surnameTh' => $request->input('surnameTh'),
+            'nameEn' => $request->input('nameEn'),
+            'surnameEn' => $request->input('surnameEn'),
+            'EmailStudent' => $request->input('EmailStudent'),
+            'mobile' => $request->input('mobile'),
+            'Address' => $request->input('Address'),
+           
+        );
+        $PictureProfile = $request->file('PictureProfile');
+        if(!empty($PictureProfile)){
+            // อัพโหลดรูปภาพ
+            // เปลี่ยนชื่อรูปที่ได้
+            $file_name = "StudentPic_".time().".".$PictureProfile->getClientOriginalExtension();
+            // กำหนดขนาดความกว้าง และสูง ของภาพที่ต้องการย่อขนาด
+            /* $imgWidth = 400;
+            $imgHeight = 400; */
+            $folderupload = public_path('/images/student/thumbnail');
+            $path = $folderupload."/".$file_name;
+            // อัพโหลดเข้าสู่ folder thumbnail
+            $img = Image::make($PictureProfile->getRealPath());
+           /*  $img->orientate()->fit($imgWidth,$imgHeight, function($constraint){
+                $constraint->upsize();
+            }); */
+            $img->save($path);
+            // อัพโหลดภาพต้นฉบับเข้า folder original
+            $destinationPath = public_path('/images/student/original');
+            $PictureProfile->move($destinationPath, $file_name);
+            // กำหนด path รูปเพื่อใส่ตารางในฐานข้อมูล
+            $data_picture['PictureProfile'] = url('/').'/images/student/thumbnail/'.$file_name;
+            }else{
+            $data_picture['PictureProfile'] = url('/').'/images/student/thumbnail/no_img.jpg';
+            }
+
+            $student = Student::find($id);
+            $student->update($data_picture);
+            return $student;
     }
 
     /**
@@ -111,5 +158,9 @@ class StudentController extends Controller
     public function destroy($id)
     {
         return Student::destroy($id);
+    }
+    public function search($studentCode)
+    {
+        return Student::where("studentCode","like","%".$studentCode."%")->paginate(50);
     }
 }

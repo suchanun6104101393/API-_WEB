@@ -21,6 +21,31 @@ Route::group(['middleware' => 'auth:sanctum'], function(){
         // Route Banner //
         Route::post("banner/create",[\App\Http\Controllers\Api\BannerController::class,'store']); 
         Route::delete("banner/delete/{id}",[\App\Http\Controllers\Api\BannerController::class,'destroy']);  
+
+        // Route Personnel //
+        Route::get("personnel",[\App\Http\Controllers\Api\PersonnelController::class,'index']);
+        Route::get("personnel/{type}",[\App\Http\Controllers\Api\PersonnelController::class,'search']);
+        Route::get("personnel/id/{id}",[\App\Http\Controllers\Api\PersonnelController::class,'show']);
+        Route::post("personnel/create",[\App\Http\Controllers\Api\PersonnelController::class,'store']); 
+        Route::put("personnel/update/{id}",[\App\Http\Controllers\Api\PersonnelController::class,'update']); 
+        Route::delete("personnel/delete/{id}",[\App\Http\Controllers\Api\PersonnelController::class,'destroy']);
+
+        // Route  News
+        Route::get("news",[\App\Http\Controllers\Api\NewsController::class,'index']);
+        Route::get("news/{News_Type}",[\App\Http\Controllers\Api\NewsController::class,'search']);
+        Route::get("news/id/{id}",[\App\Http\Controllers\Api\NewsController::class,'show']); 
+        Route::post("news/create",[\App\Http\Controllers\Api\NewsController::class,'store']); 
+        Route::put("news/update/{id}",[\App\Http\Controllers\Api\NewsController::class,'update']); 
+        Route::delete("news/delete/{id}",[\App\Http\Controllers\Api\NewsController::class,'destroy']); 
+
+        // Route  Newsapp
+        Route::get("newsapp",[\App\Http\Controllers\Api\NewsAppController::class,'index']);
+        Route::get("newsapp/{News_Type}",[\App\Http\Controllers\Api\NewsAppController::class,'search']);
+        Route::get("newsapp/id/{id}",[\App\Http\Controllers\Api\NewsAppController::class,'show']); 
+        Route::put("newsapp/update/{id}",[\App\Http\Controllers\Api\NewsAppController::class,'update']); 
+        Route::post("newsapp/create",[\App\Http\Controllers\Api\NewsAppController::class,'store']); 
+        Route::delete("newsapp/delete/{id}",[\App\Http\Controllers\Api\NewsAppController::class,'destroy']); 
+
         
 });
 
@@ -29,29 +54,8 @@ Route::post("login",[\App\Http\Controllers\AuthController::class,'login']);
 
 //////////////////////////////// public route ///////////////////////////////////////
 
-// Route Personnel //
-Route::get("personnel",[\App\Http\Controllers\Api\PersonnelController::class,'index']);
-Route::get("personnel/{type}",[\App\Http\Controllers\Api\PersonnelController::class,'search']);
-Route::get("personnel/id/{id}",[\App\Http\Controllers\Api\PersonnelController::class,'show']);
-Route::post("personnel/create",[\App\Http\Controllers\Api\PersonnelController::class,'store']); 
-Route::put("personnel/update/{id}",[\App\Http\Controllers\Api\PersonnelController::class,'update']); 
-Route::delete("personnel/delete/{id}",[\App\Http\Controllers\Api\PersonnelController::class,'destroy']);
 
-// Route  News
-Route::get("news",[\App\Http\Controllers\Api\NewsController::class,'index']);
-Route::get("news/{News_Type}",[\App\Http\Controllers\Api\NewsController::class,'search']);
-Route::get("news/id/{id}",[\App\Http\Controllers\Api\NewsController::class,'show']); 
-Route::post("news/create",[\App\Http\Controllers\Api\NewsController::class,'store']); 
-Route::put("news/update/{id}",[\App\Http\Controllers\Api\NewsController::class,'update']); 
-Route::delete("news/delete/{id}",[\App\Http\Controllers\Api\NewsController::class,'destroy']); 
 
-// Route  Newsapp
-Route::get("newsapp",[\App\Http\Controllers\Api\NewsAppController::class,'index']);
-Route::get("newsapp/{News_Type}",[\App\Http\Controllers\Api\NewsAppController::class,'search']);
-Route::get("newsapp/id/{id}",[\App\Http\Controllers\Api\NewsAppController::class,'show']); 
-Route::put("newsapp/update/{id}",[\App\Http\Controllers\Api\NewsAppController::class,'update']); 
-Route::post("newsapp/create",[\App\Http\Controllers\Api\NewsAppController::class,'store']); 
-Route::delete("newsapp/delete/{id}",[\App\Http\Controllers\Api\NewsAppController::class,'destroy']); 
 
 // Route  Complain
 Route::get("complain",[\App\Http\Controllers\Api\ComplainController::class,'index']);
@@ -117,12 +121,13 @@ Route::get("activitypic/{id}",[\App\Http\Controllers\Api\ActivityPicController::
 Route::post("activitypic/create",[\App\Http\Controllers\Api\ActivityPicController::class,'store']); 
 Route::delete("activitypic/delete/{id}",[\App\Http\Controllers\Api\ActivityPicController::class,'destroy']); 
 
-//Route  ActivityPic
+//Route  Student
 Route::get("student",[\App\Http\Controllers\Api\StudentController::class,'index']);
 Route::get("student/id/{id}",[\App\Http\Controllers\Api\StudentController::class,'show']);  
 Route::put("student/update/{id}",[\App\Http\Controllers\Api\StudentController::class,'update']); 
 Route::post("student/create",[\App\Http\Controllers\Api\StudentController::class,'store']); 
 Route::delete("student/delete/{id}",[\App\Http\Controllers\Api\StudentController::class,'destroy']); 
+Route::get("student/{studentCode}",[\App\Http\Controllers\Api\StudentController::class,'search']); 
 
 
 

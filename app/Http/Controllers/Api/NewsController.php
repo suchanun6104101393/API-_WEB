@@ -67,9 +67,52 @@ class NewsController extends Controller
         }
     public function update(Request $request,  $id)
     {
-        $news = News::find($id);
-        $news->update($request->all());
-        return $news;
+        $request->validate([
+            'News_Detail' => 'required',
+            'News_Date' => 'required',
+            'News_Time' => 'required',
+           
+            'News_Title' => 'required',
+            'News_File' => 'required',
+            'News_links' => 'required',
+            'News_Type' => 'required'
+        ]);
+        $data_news = array(
+            'News_Detail' => $request->input('News_Detail'),
+            'News_Date' => $request->input('News_Date'),
+            'News_Time' => $request->input('News_Time'),
+            'News_File' => $request->input('News_File'),
+            'News_Title' => $request->input('News_Title'),
+            'News_links' => $request->input('News_links'),
+            'News_Type' => $request->input('News_Type'),
+        );
+        $News_Picture = $request->file('News_Picture');
+        if(!empty($News_Picture)){
+            // อัพโหลดรูปภาพ
+            // เปลี่ยนชื่อรูปที่ได้
+            $file_name = "news_".time().".".$News_Picture->getClientOriginalExtension();
+            // กำหนดขนาดความกว้าง และสูง ของภาพที่ต้องการย่อขนาด
+            /* $imgWidth = 400;
+            $imgHeight = 400; */
+            $folderupload = public_path('/images/news/thumbnail');
+            $path = $folderupload."/".$file_name;
+            // อัพโหลดเข้าสู่ folder thumbnail
+            $img = Image::make($News_Picture->getRealPath());
+           /*  $img->orientate()->fit($imgWidth,$imgHeight, function($constraint){
+                $constraint->upsize();
+            }); */
+            $img->save($path);
+            // อัพโหลดภาพต้นฉบับเข้า folder original
+            $destinationPath = public_path('/images/news/original');
+            $News_Picture->move($destinationPath, $file_name);
+            // กำหนด path รูปเพื่อใส่ตารางในฐานข้อมูล
+            $data_news['News_Picture'] = url('/').'/images/news/thumbnail/'.$file_name;
+            }else{
+            $data_news['News_Picture'] = url('/').'/images/news/thumbnail/no_img.jpg';
+            }
+            $news = News::find($id);
+            $news->update($data_news);
+            return $news;
     }
 
     public function destroy($id)

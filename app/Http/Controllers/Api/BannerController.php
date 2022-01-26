@@ -63,12 +63,7 @@ class BannerController extends Controller
             $data_banner['Banner_File'] = url('/').'/images/banner/thumbnail/no_img.jpg';
             }
             return banner::create($data_banner);
-        /* $request->validate([
-            'Banner_Date' => 'required',
-            'Banner_Time' => 'required',
-            'Banner_File' => 'required',
-        ]);
-        return Banner::create($request->all()); */
+        
     }
 
     /**

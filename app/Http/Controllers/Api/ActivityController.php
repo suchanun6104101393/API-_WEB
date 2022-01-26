@@ -97,9 +97,55 @@ class ActivityController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $activity = Activity::find($id);
-        $activity->update($request->all());
-        return $activity;
+        $request->validate([
+            'Activity_Start' => 'required',
+            'Activity_TimeStart' => 'required',
+            'Activity_TimeEnd' => 'required',
+            'Activity_Organizer' => 'required',
+            'Activity_Location' => 'required',
+            'Activity_Detail' => 'required',
+            'Activity_Title' => 'required',
+            'Activity_End' => 'required',
+           
+        ]);
+        $data_activity = array(
+            'Activity_Start' => $request->input('Activity_Start'),
+            'Activity_TimeStart' => $request->input('Activity_TimeStart'),
+            'Activity_TimeEnd' => $request->input('Activity_TimeEnd'),
+            'Activity_Organizer' => $request->input('Activity_Organizer'),
+            'Activity_Location' => $request->input('Activity_Location'),
+            'Activity_Detail' => $request->input('Activity_Detail'),
+            'Activity_Title' => $request->input('Activity_Title'),
+            'Activity_End' => $request->input('Activity_End'),
+           
+        );
+        $Activity_Picture = $request->file('Activity_Picture');
+        if(!empty($Activity_Picture)){
+            // อัพโหลดรูปภาพ
+            // เปลี่ยนชื่อรูปที่ได้
+            $file_name = "activitypic_".time().".".$Activity_Picture->getClientOriginalExtension();
+            // กำหนดขนาดความกว้าง และสูง ของภาพที่ต้องการย่อขนาด
+            /* $imgWidth = 400;
+            $imgHeight = 400; */
+            $folderupload = public_path('/images/activitypic/thumbnail');
+            $path = $folderupload."/".$file_name;
+            // อัพโหลดเข้าสู่ folder thumbnail
+            $img = Image::make($Activity_Picture->getRealPath());
+           /*  $img->orientate()->fit($imgWidth,$imgHeight, function($constraint){
+                $constraint->upsize();
+            }); */
+            $img->save($path);
+            // อัพโหลดภาพต้นฉบับเข้า folder original
+            $destinationPath = public_path('/images/activitypic/original');
+            $Activity_Picture->move($destinationPath, $file_name);
+            // กำหนด path รูปเพื่อใส่ตารางในฐานข้อมูล
+            $data_activity['Activity_Picture'] = url('/').'/images/activitypic/thumbnail/'.$file_name;
+            }else{
+            $data_activity['Activity_Picture'] = url('/').'/images/activitypic/thumbnail/no_img.jpg';
+            }
+            $activity = Activity::find($id);
+            $activity->update($data_activity);
+            return $activity;
     }
 
     /**
