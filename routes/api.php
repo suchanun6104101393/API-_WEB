@@ -78,6 +78,7 @@ Route::group(['middleware' => 'auth:sanctum'], function(){
         Route::post("subject/create",[\App\Http\Controllers\Api\SubjectController::class,'store']); 
         Route::delete("subject/delete/{id}",[\App\Http\Controllers\Api\SubjectController::class,'destroy']); 
         Route::get("subject/{Subject_Detail}",[\App\Http\Controllers\Api\SubjectController::class,'search']);
+        Route::get("subject/code/{Subject_Code}",[\App\Http\Controllers\Api\SubjectController::class,'search1']);
 
         // Route Material
         Route::get("material",[\App\Http\Controllers\Api\MaterialController::class,'index']);

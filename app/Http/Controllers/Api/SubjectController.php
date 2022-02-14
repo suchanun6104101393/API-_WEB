@@ -77,6 +77,10 @@ class SubjectController extends Controller
     {
         return Subject::where("Subject_Detail","like","%".$Subject_Detail."%")->get();
     }
+    public function search1($Subject_Code)
+    {
+        return Subject::where("Subject_Code","like","%".$Subject_Code."%")->get();
+    }
 
     
 }

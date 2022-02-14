@@ -30,6 +30,7 @@ body {font-size:16px;}
     <a href="#material" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Material(วัสดุอุปกรณ์)</a>
     <a href="#alumni" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Alumni (ศิษย์เก่า)</a>
     <a href="#banner" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Banner (แบรนเนอร์)</a>
+    <a href="#residaual" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Residaual (แจ้งตกค้าง)</a>
   </div>
 </nav>
 <!-- Top menu on small screens -->
@@ -44,6 +45,8 @@ body {font-size:16px;}
 <!-- Header -->
 <div class="w3-container" style="margin-top:80px" id="personnel">
     <h2 class="w3-jumbo"><b>API COMPUTURE SCIENCE</b></h2>
+    <p>ข้อมูลที่ปรากฏใน CSMJU API จะประกอบไปด้วยข้อมูลที่มีความละเอียดอ่อน เพื่อป้องกันไม่ให้ผู้ที่ไม่มีสิทธิในการเข้าถึงข้อมูลเข้าถึงข้อมูลได้ <br>
+    ทางสาขาวิชาวิทยาการคอมพิวเตอร์ จึงกำหนดให้ผู้ที่จะเข้าใช้งานข้อมูล CSMJU API จะต้องมีการระบุ<span class="w3-tag"> Bearer Token</span> ของตนเองก่อนทดสอบ ด้วย Postman  </p>
     <h2 class="w3-xxxlarge w3-text-grey"><b>Personnel.</b></h2>
     <hr style="width:50px;border:5px solid blue" class="w3-round">
 </div>
@@ -454,6 +457,11 @@ body {font-size:16px;}
       <td>subject/{Subject_Detail}</td>
       <td><button class="w3-button w3-yellow">Get</button></td>
     </tr>
+    <tr>
+      <td></td>
+      <td>subject/code/{Subject_Code}</td>
+      <td><button class="w3-button w3-yellow">Get</button></td>
+    </tr>
 
     <tr>
       <td></td>
@@ -623,6 +631,47 @@ body {font-size:16px;}
   </div>
   </div>
 
+   <!-- residaual -->
+   <div class="w3-container" id="residaual" style="margin-top:75px">
+      <h2 class="w3-xxxlarge w3-text-grey"><b>residaual.</b></h2>
+      <hr style="width:50px;border:5px solid blue" class="w3-round">
+      <div class="w3-half">
+    <table class="w3-table w3-striped w3-bordered">
+    <tr>
+      <th>Host</th>
+      <th>Path</th>
+      <th>Method</th>
+    </tr>
+    <tr>
+      <td>https://wwwdev.csmju.com/api/</td>
+      <td>residaual</td>
+      <td><a href="https://wwwdev.csmju.com/api/residaual" button class="w3-button w3-yellow">Get</button></td>
+    </tr>
+
+    <tr>
+      <td></td>
+      <td>residaual/id/{id}</td>
+      <td><button class="w3-button w3-yellow">Get</button></td>
+    </tr>
+
+   
+
+    <tr>
+      <td></td>
+      <td>residaual/create</td>
+      <td><button class="w3-button w3-green">Post</button></td>
+    </tr>
+
+   
+
+    <tr>
+      <td></td>
+      <td>residaual/delete/{id}</td>
+      <td><button class="w3-button w3-red">Delete</button></td>
+    </tr>
+  </table>
+  </div>
+  </div>
 
 
 
