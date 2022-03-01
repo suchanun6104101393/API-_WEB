@@ -18,6 +18,7 @@ use App\Models\Equipment;
 
 Route::group(['middleware' => 'auth:sanctum'], function(){
         Route::post("logout",[\App\Http\Controllers\AuthController::class,'logout']);
+
         // Route Personnel //
         Route::get("personnel",[\App\Http\Controllers\Api\PersonnelController::class,'index']);
         Route::get("personnel/{type}",[\App\Http\Controllers\Api\PersonnelController::class,'search']);
@@ -67,6 +68,7 @@ Route::group(['middleware' => 'auth:sanctum'], function(){
         Route::get("equipment",[\App\Http\Controllers\Api\EquipmentController::class,'index']);
         Route::get("equipment/id/{id}",[\App\Http\Controllers\Api\EquipmentController::class,'show']);  
         Route::get("equipments/{Equipment_Name}",[\App\Http\Controllers\Api\EquipmentController::class,'search']);
+        Route::get("equipments/code/{Equipment_Code}",[\App\Http\Controllers\Api\EquipmentController::class,'search1']);
         Route::put("equipment/update/{id}",[\App\Http\Controllers\Api\EquipmentController::class,'update']); 
         Route::post("equipment/create",[\App\Http\Controllers\Api\EquipmentController::class,'store']); 
         Route::delete("equipment/delete/{id}",[\App\Http\Controllers\Api\EquipmentController::class,'destroy']); 
@@ -117,13 +119,18 @@ Route::group(['middleware' => 'auth:sanctum'], function(){
         Route::post("student/create",[\App\Http\Controllers\Api\StudentController::class,'store']); 
         Route::delete("student/delete/{id}",[\App\Http\Controllers\Api\StudentController::class,'destroy']); 
         Route::get("student/{studentCode}",[\App\Http\Controllers\Api\StudentController::class,'search']); 
-
         Route::get("residaual",[\App\Http\Controllers\Api\ResidaualController::class,'index']);
         Route::get("residaual/id/{id}",[\App\Http\Controllers\Api\ResidaualController::class,'show']); 
         Route::post("residaual/create",[\App\Http\Controllers\Api\ResidaualController::class,'store']); 
         Route::delete("residaual/delete/{id}",[\App\Http\Controllers\Api\ResidaualController::class,'destroy']); 
 
+        //Route  Bookclassroom
+        Route::get("bookclassroom",[\App\Http\Controllers\Api\BookClassroomController::class,'index']);
+        Route::get("bookclassroom/id/{id}",[\App\Http\Controllers\Api\BookClassroomController::class,'show']);
+        Route::post("bookclassroom/create",[\App\Http\Controllers\Api\BookClassroomController::class,'store']);
+        Route::delete("bookclassroom/delete/{id}",[\App\Http\Controllers\Api\BookClassroomController::class,'destroy']);
         
+
 });
 
 Route::post("register",[\App\Http\Controllers\AuthController::class,'register']);

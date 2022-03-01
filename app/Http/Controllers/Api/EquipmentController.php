@@ -59,4 +59,10 @@ class EquipmentController extends Controller
         return Equipment::where("Equipment_Name","like","%".$Equipment_Name."%")
         ->paginate(15);
     }
+
+    public function search1($Equipment_Code)
+    {
+        return Equipment::where("Equipment_Code","like","%".$Equipment_Code."%")
+        ->paginate(15);
+    }
 }

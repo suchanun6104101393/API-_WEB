@@ -31,6 +31,7 @@ body {font-size:16px;}
     <a href="#alumni" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Alumni (ศิษย์เก่า)</a>
     <a href="#banner" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Banner (แบรนเนอร์)</a>
     <a href="#residaual" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Residaual (แจ้งตกค้าง)</a>
+    <a href="#Bookclassroom" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Bookclassroom (จองห้อง)</a>
   </div>
 </nav>
 <!-- Top menu on small screens -->
@@ -611,17 +612,11 @@ body {font-size:16px;}
       <td>banner/id/{id}</td>
       <td><button class="w3-button w3-yellow">Get</button></td>
     </tr>
-
-   
-
     <tr>
       <td></td>
       <td>banner/create</td>
       <td><button class="w3-button w3-green">Post</button></td>
     </tr>
-
-   
-
     <tr>
       <td></td>
       <td>banner/delete/{id}</td>
@@ -653,20 +648,52 @@ body {font-size:16px;}
       <td>residaual/id/{id}</td>
       <td><button class="w3-button w3-yellow">Get</button></td>
     </tr>
-
-   
-
     <tr>
       <td></td>
       <td>residaual/create</td>
       <td><button class="w3-button w3-green">Post</button></td>
     </tr>
 
-   
-
     <tr>
       <td></td>
       <td>residaual/delete/{id}</td>
+      <td><button class="w3-button w3-red">Delete</button></td>
+    </tr>
+  </table>
+  </div>
+  </div>
+
+   <!-- Bookclassroom -->
+   <div class="w3-container" id="Bookclassroom" style="margin-top:75px">
+      <h2 class="w3-xxxlarge w3-text-grey"><b>Bookclassroom.</b></h2>
+      <hr style="width:50px;border:5px solid blue" class="w3-round">
+      <div class="w3-half">
+    <table class="w3-table w3-striped w3-bordered">
+    <tr>
+      <th>Host</th>
+      <th>Path</th>
+      <th>Method</th>
+    </tr>
+    <tr>
+      <td>https://wwwdev.csmju.com/api/</td>
+      <td>bookclassroom</td>
+      <td><a href="https://wwwdev.csmju.com/api/bookclassroom" button class="w3-button w3-yellow">Get</button></td>
+    </tr>
+
+    <tr>
+      <td></td>
+      <td>bookclassroom/id/{id}</td>
+      <td><button class="w3-button w3-yellow">Get</button></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>bookclassroom/create</td>
+      <td><button class="w3-button w3-green">Post</button></td>
+    </tr>
+
+    <tr>
+      <td></td>
+      <td>bookclassroom/delete/{id}</td>
       <td><button class="w3-button w3-red">Delete</button></td>
     </tr>
   </table>

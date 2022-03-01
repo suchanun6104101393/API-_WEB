@@ -48,7 +48,6 @@ class PersonnelController extends Controller
             'major' => 'required',
             'university' => 'required',
             'e_mail' => 'required',
-           
             'portfolioResearch' => 'required',
             'adminPosition' => 'required',
             'phoneNumber' => 'required',
@@ -131,56 +130,32 @@ class PersonnelController extends Controller
     {
         $request->validate([
             'citizenId' => 'required|min:13',
-            'titleName' => 'required',
-            'titlePosition' => 'required',
             'firstName' => 'required',
             'lastName' => 'required',
-            'titleNameEn' => 'required',
             'fistNameEn' => 'required',
             'lastNameEn' => 'required',
-            'gender' => 'required',
-            'personnelType' => 'required',
-            'positionType' => 'required',
             'position' => 'required',
-            'faculty' => 'required',
-            'educationLevel' => 'required',
-            'titleEducation' => 'required',
             'education' => 'required',
             'major' => 'required',
             'university' => 'required',
             'e_mail' => 'required',
-           
-            'portfolioResearch' => 'required',
             'adminPosition' => 'required',
             'phoneNumber' => 'required',
-            'Type' => 'required',
+
         ]);
         $data_picture = array(
             'citizenId' => $request->input('citizenId'),
-            'titleName' => $request->input('titleName'),
-            'titlePosition' => $request->input('titlePosition'),
             'firstName' => $request->input('firstName'),
             'lastName' => $request->input('lastName'),
-            'titleNameEn' => $request->input('titleNameEn'),
             'fistNameEn' => $request->input('fistNameEn'),
             'lastNameEn' => $request->input('lastNameEn'),
-            'gender' => $request->input('gender'),
-            'personnelType' => $request->input('personnelType'),
-            'positionType' => $request->input('positionType'),
             'position' => $request->input('position'),
-            'faculty' => $request->input('faculty'),
-            'educationLevel' => $request->input('educationLevel'),
-            'titleEducation' => $request->input('titleEducation'),
             'education' => $request->input('education'),
             'major' => $request->input('major'),
             'university' => $request->input('university'),
             'e_mail' => $request->input('e_mail'),
-            'portfolioResearch' => $request->input('portfolioResearch'),
             'adminPosition' => $request->input('adminPosition'),
             'phoneNumber' => $request->input('phoneNumber'),
-            'Type' => $request->input('Type'),
-
-           
         );
         $personnelPhoto = $request->file('personnelPhoto');
         if(!empty($personnelPhoto)){
