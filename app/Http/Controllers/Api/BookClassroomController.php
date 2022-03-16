@@ -48,7 +48,12 @@ class BookClassroomController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'Status_Book' => 'required',
+        ]);
+        $bookclassroom = BookClassroom::find($id);
+        $bookclassroom->update($request->all());
+        return response()->json($bookclassroom);
     }
 
     /**
@@ -60,5 +65,9 @@ class BookClassroomController extends Controller
     public function destroy($id)
     {
         return BookClassroom::destroy($id);
+    }
+    public function search($Email)
+    {
+        return BookClassroom::where("Email","like","%".$Email."%")->get();
     }
 }

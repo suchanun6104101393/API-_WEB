@@ -119,6 +119,7 @@ Route::group(['middleware' => 'auth:sanctum'], function(){
         Route::post("student/create",[\App\Http\Controllers\Api\StudentController::class,'store']); 
         Route::delete("student/delete/{id}",[\App\Http\Controllers\Api\StudentController::class,'destroy']); 
         Route::get("student/{studentCode}",[\App\Http\Controllers\Api\StudentController::class,'search']); 
+        //Route  residaual
         Route::get("residaual",[\App\Http\Controllers\Api\ResidaualController::class,'index']);
         Route::get("residaual/id/{id}",[\App\Http\Controllers\Api\ResidaualController::class,'show']); 
         Route::post("residaual/create",[\App\Http\Controllers\Api\ResidaualController::class,'store']); 
@@ -129,19 +130,24 @@ Route::group(['middleware' => 'auth:sanctum'], function(){
         Route::get("bookclassroom/id/{id}",[\App\Http\Controllers\Api\BookClassroomController::class,'show']);
         Route::post("bookclassroom/create",[\App\Http\Controllers\Api\BookClassroomController::class,'store']);
         Route::delete("bookclassroom/delete/{id}",[\App\Http\Controllers\Api\BookClassroomController::class,'destroy']);
-        
+        Route::get("bookclassroom/{Email}",[\App\Http\Controllers\Api\BookClassroomController::class,'search']);
+        Route::put("bookclassroom/update/{id}",[\App\Http\Controllers\Api\BookClassroomController::class,'update']);
+
+        //Route  borrow_return
+        Route::get("borrow_return",[\App\Http\Controllers\Api\BorrowReturnController::class,'index']);
+        Route::get("borrow_return/id/{id}",[\App\Http\Controllers\Api\BorrowReturnController::class,'show']);
+        Route::post("borrow_return/create",[\App\Http\Controllers\Api\BorrowReturnController::class,'store']);
+        Route::put("borrow_return/update/{id}",[\App\Http\Controllers\Api\BorrowReturnController::class,'update']);
+        Route::delete("borrow_return/delete/{id}",[\App\Http\Controllers\Api\BorrowReturnController::class,'destroy']);
+        Route::get("borrow_return/{Email}",[\App\Http\Controllers\Api\BookClassroomController::class,'search']);
 
 });
+
 
 Route::post("register",[\App\Http\Controllers\AuthController::class,'register']);
 Route::post("login",[\App\Http\Controllers\AuthController::class,'login']);
 
 //////////////////////////////// public route ///////////////////////////////////////
-
-
-
-
-
 
 
 

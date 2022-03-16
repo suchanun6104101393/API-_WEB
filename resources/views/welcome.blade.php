@@ -32,6 +32,7 @@ body {font-size:16px;}
     <a href="#banner" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Banner (แบรนเนอร์)</a>
     <a href="#residaual" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Residaual (แจ้งตกค้าง)</a>
     <a href="#Bookclassroom" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Bookclassroom (จองห้อง)</a>
+    <a href="#Borrow_Return" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Borrow_Return (ยืม-คืน)</a>
   </div>
 </nav>
 <!-- Top menu on small screens -->
@@ -687,13 +688,71 @@ body {font-size:16px;}
     </tr>
     <tr>
       <td></td>
+      <td>bookclassroom/{Email}</td>
+      <td><button class="w3-button w3-yellow">Get</button></td>
+    </tr>
+    <tr>
+      <td></td>
       <td>bookclassroom/create</td>
       <td><button class="w3-button w3-green">Post</button></td>
     </tr>
+    <tr>
+      <td></td>
+      <td>bookclassroom/update/{id}</td>
+      <td><button class="w3-button w3-purple">Put</button></td>
+    </tr>
+    
 
     <tr>
       <td></td>
       <td>bookclassroom/delete/{id}</td>
+      <td><button class="w3-button w3-red">Delete</button></td>
+    </tr>
+  </table>
+  </div>
+  </div>
+ <!-- Borrow_Return -->
+ <div class="w3-container" id="Borrow_Return" style="margin-top:75px">
+      <h2 class="w3-xxxlarge w3-text-grey"><b>Bookclassroom.</b></h2>
+      <hr style="width:50px;border:5px solid blue" class="w3-round">
+      <div class="w3-half">
+    <table class="w3-table w3-striped w3-bordered">
+    <tr>
+      <th>Host</th>
+      <th>Path</th>
+      <th>Method</th>
+    </tr>
+    <tr>
+      <td>https://wwwdev.csmju.com/api/</td>
+      <td>borrow_return</td>
+      <td><a href="https://wwwdev.csmju.com/api/borrow_return" button class="w3-button w3-yellow">Get</button></td>
+    </tr>
+
+    <tr>
+      <td></td>
+      <td>borrow_return/id/{id}</td>
+      <td><button class="w3-button w3-yellow">Get</button></td>
+    </tr>
+    <tr>
+    <tr>
+      <td></td>
+      <td>borrow_return/{Email}</td>
+      <td><button class="w3-button w3-yellow">Get</button></td>
+    </tr>
+
+      <td></td>
+      <td>borrow_return/create</td>
+      <td><button class="w3-button w3-green">Post</button></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>borrow_return/update/{id}</td>
+      <td><button class="w3-button w3-purple">Put</button></td>
+    </tr>
+
+    <tr>
+      <td></td>
+      <td>borrow_return/delete/{id}</td>
       <td><button class="w3-button w3-red">Delete</button></td>
     </tr>
   </table>
