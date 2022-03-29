@@ -198,4 +198,8 @@ class PersonnelController extends Controller
     {
         return Personnel::where("Type","like","%".$Type."%")->get();
     }
+    public function search1($citizenId)
+    {
+        return Personnel::where("citizenId","like","%".$citizenId."%")->get();
+    }
 }

@@ -23,6 +23,7 @@ Route::group(['middleware' => 'auth:sanctum'], function(){
         Route::get("personnel",[\App\Http\Controllers\Api\PersonnelController::class,'index']);
         Route::get("personnel/{type}",[\App\Http\Controllers\Api\PersonnelController::class,'search']);
         Route::get("personnel/id/{id}",[\App\Http\Controllers\Api\PersonnelController::class,'show']);
+        Route::get("personnel/cardid/{citizenId}",[\App\Http\Controllers\Api\PersonnelController::class,'search1']);
         Route::post("personnel/create",[\App\Http\Controllers\Api\PersonnelController::class,'store']); 
         Route::put("personnel/update/{id}",[\App\Http\Controllers\Api\PersonnelController::class,'update']); 
         Route::delete("personnel/delete/{id}",[\App\Http\Controllers\Api\PersonnelController::class,'destroy']);
@@ -67,11 +68,13 @@ Route::group(['middleware' => 'auth:sanctum'], function(){
         // Route  Equipment
         Route::get("equipment",[\App\Http\Controllers\Api\EquipmentController::class,'index']);
         Route::get("equipment/id/{id}",[\App\Http\Controllers\Api\EquipmentController::class,'show']);  
-        Route::get("equipments/{Equipment_Name}",[\App\Http\Controllers\Api\EquipmentController::class,'search']);
+        Route::get("equipment/{Equipment_Name}",[\App\Http\Controllers\Api\EquipmentController::class,'search']);
         Route::get("equipments/code/{Equipment_Code}",[\App\Http\Controllers\Api\EquipmentController::class,'search1']);
         Route::put("equipment/update/{id}",[\App\Http\Controllers\Api\EquipmentController::class,'update']); 
         Route::post("equipment/create",[\App\Http\Controllers\Api\EquipmentController::class,'store']); 
         Route::delete("equipment/delete/{id}",[\App\Http\Controllers\Api\EquipmentController::class,'destroy']); 
+        Route::get("equipmentapp",[\App\Http\Controllers\Api\EquipmentappController::class,'index']);
+
 
         // Route  Subject
         Route::get("subject",[\App\Http\Controllers\Api\SubjectController::class,'index']);
@@ -139,7 +142,23 @@ Route::group(['middleware' => 'auth:sanctum'], function(){
         Route::post("borrow_return/create",[\App\Http\Controllers\Api\BorrowReturnController::class,'store']);
         Route::put("borrow_return/update/{id}",[\App\Http\Controllers\Api\BorrowReturnController::class,'update']);
         Route::delete("borrow_return/delete/{id}",[\App\Http\Controllers\Api\BorrowReturnController::class,'destroy']);
-        Route::get("borrow_return/{Email}",[\App\Http\Controllers\Api\BookClassroomController::class,'search']);
+        Route::get("borrow_return/{Email}",[\App\Http\Controllers\Api\BorrowReturnController::class,'search']);
+
+        //Route  CV
+        Route::get("cv",[\App\Http\Controllers\Api\CvController::class,'index']);
+        Route::post("cv/create",[\App\Http\Controllers\Api\CvController::class,'store']);
+        Route::get("cv/id/{id}",[\App\Http\Controllers\Api\CvController::class,'show']);
+        Route::put("cv/update/{id}",[\App\Http\Controllers\Api\CvController::class,'update']);
+        Route::delete("cv/delete/{id}",[\App\Http\Controllers\Api\CvController::class,'destroy']);  
+        
+        // Activity join
+        Route::get("activityjoin",[\App\Http\Controllers\Api\ActivityjoinController::class,'index']);
+        Route::get("activityjoin/id/{id}",[\App\Http\Controllers\Api\ActivityjoinController::class,'show']);
+        Route::post("activityjoin/create",[\App\Http\Controllers\Api\ActivityjoinController::class,'store']);
+        Route::put("activityjoin/update",[\App\Http\Controllers\Api\ActivityjoinController::class,'update']);
+        Route::delete("activityjoin/delete/{id}",[\App\Http\Controllers\Api\ActivityjoinController::class,'destroy']); 
+        Route::get("activityjoin/email/{Email}",[\App\Http\Controllers\Api\ActivityjoinController::class,'search']);
+        Route::get("activityjoin/titile/{Activity_Title}",[\App\Http\Controllers\Api\ActivityjoinController::class,'search1']);
 
 });
 
@@ -150,10 +169,6 @@ Route::post("login",[\App\Http\Controllers\AuthController::class,'login']);
 //////////////////////////////// public route ///////////////////////////////////////
 
 
-
-
-
-
-/* Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+ /* Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 }); */

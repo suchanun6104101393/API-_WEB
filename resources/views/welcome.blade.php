@@ -33,6 +33,9 @@ body {font-size:16px;}
     <a href="#residaual" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Residaual (แจ้งตกค้าง)</a>
     <a href="#Bookclassroom" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Bookclassroom (จองห้อง)</a>
     <a href="#Borrow_Return" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Borrow_Return (ยืม-คืน)</a>
+    <a href="#CV" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">CV </a>
+    <a href="#Activity" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Activity(กิจกรรม) </a>
+    <a href="#Activityjoin" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Activityjoin(เข้าร่วมกิจกรรม)</a>
   </div>
 </nav>
 <!-- Top menu on small screens -->
@@ -759,8 +762,140 @@ body {font-size:16px;}
   </div>
   </div>
 
+  <!-- cv -->
+ <div class="w3-container" id="CV" style="margin-top:75px">
+      <h2 class="w3-xxxlarge w3-text-grey"><b>CV.</b></h2>
+      <hr style="width:50px;border:5px solid blue" class="w3-round">
+      <div class="w3-half">
+    <table class="w3-table w3-striped w3-bordered">
+    <tr>
+      <th>Host</th>
+      <th>Path</th>
+      <th>Method</th>
+    </tr>
+    <tr>
+      <td>https://wwwdev.csmju.com/api/</td>
+      <td>cv</td>
+      <td><a href="https://wwwdev.csmju.com/api/cv" button class="w3-button w3-yellow">Get</button></td>
+    </tr>
 
+    <tr>
+      <td></td>
+      <td>cv/id/{id}</td>
+      <td><button class="w3-button w3-yellow">Get</button></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>cv/create</td>
+      <td><button class="w3-button w3-green">Post</button></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>cv/update/{id}</td>
+      <td><button class="w3-button w3-purple">Put</button></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>cv/delete/{id}</td>
+      <td><button class="w3-button w3-red">Delete</button></td>
+    </tr>
+  </table>
+  </div>
+  </div>
 
+    <!-- Activity -->
+  <div class="w3-container" id="Activity" style="margin-top:75px">
+      <h2 class="w3-xxxlarge w3-text-grey"><b>Activity.</b></h2>
+      <hr style="width:50px;border:5px solid blue" class="w3-round">
+      <div class="w3-half">
+    <table class="w3-table w3-striped w3-bordered">
+    <tr>
+      <th>Host</th>
+      <th>Path</th>
+      <th>Method</th>
+    </tr>
+    <tr>
+      <td>https://wwwdev.csmju.com/api/</td>
+      <td>activity</td>
+      <td><a href="https://wwwdev.csmju.com/api/activity" button class="w3-button w3-yellow">Get</button></td>
+    </tr>
+
+    <tr>
+      <td></td>
+      <td>activity/id/{id}</td>
+      <td><button class="w3-button w3-yellow">Get</button></td>
+    </tr>
+    
+    <tr>
+      <td></td>
+      <td>activity/create</td>
+      <td><button class="w3-button w3-green">Post</button></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>activity/update/{id}</td>
+      <td><button class="w3-button w3-purple">Put</button></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>activity/delete/{id}</td>
+      <td><button class="w3-button w3-red">Delete</button></td>
+    </tr>
+  </table>
+  </div>
+  </div>
+
+   <!-- Activityjoin -->
+   <div class="w3-container" id="Activityjoin" style="margin-top:75px">
+      <h2 class="w3-xxxlarge w3-text-grey"><b>Activityjoin.</b></h2>
+      <hr style="width:50px;border:5px solid blue" class="w3-round">
+      <div class="w3-half">
+    <table class="w3-table w3-striped w3-bordered">
+    <tr>
+      <th>Host</th>
+      <th>Path</th>
+      <th>Method</th>
+    </tr>
+    <tr>
+      <td>https://wwwdev.csmju.com/api/</td>
+      <td>activityjoin</td>
+      <td><a href="https://wwwdev.csmju.com/api/activityjoin" button class="w3-button w3-yellow">Get</button></td>
+    </tr>
+
+    <tr>
+      <td></td>
+      <td>activityjoin/id/{id}</td>
+      <td><button class="w3-button w3-yellow">Get</button></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>activity/email/{Email}</td>
+      <td><button class="w3-button w3-yellow">Get</button></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>activity/titile/{Activity_Title}</td>
+      <td><button class="w3-button w3-yellow">Get</button></td>
+    </tr>
+
+    <tr>
+      <td></td>
+      <td>activityjoin/create</td>
+      <td><button class="w3-button w3-green">Post</button></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>activityjoin/update/{id}</td>
+      <td><button class="w3-button w3-purple">Put</button></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>activityjoin/delete/{id}</td>
+      <td><button class="w3-button w3-red">Delete</button></td>
+    </tr>
+  </table>
+  </div>
+  </div>
 
 <!-- End page content -->
 </div>

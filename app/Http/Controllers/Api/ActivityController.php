@@ -35,7 +35,6 @@ class ActivityController extends Controller
             'Activity_Location' => 'required',
             'Activity_Detail' => 'required',
             'Activity_Title' => 'required',
-            'Activity_End' => 'required',
            
         ]);
         $data_activity = array(
@@ -46,7 +45,7 @@ class ActivityController extends Controller
             'Activity_Location' => $request->input('Activity_Location'),
             'Activity_Detail' => $request->input('Activity_Detail'),
             'Activity_Title' => $request->input('Activity_Title'),
-            'Activity_End' => $request->input('Activity_End'),
+            
            
         );
         $Activity_Picture = $request->file('Activity_Picture');
@@ -105,7 +104,7 @@ class ActivityController extends Controller
             'Activity_Location' => 'required',
             'Activity_Detail' => 'required',
             'Activity_Title' => 'required',
-            'Activity_End' => 'required',
+          
            
         ]);
         $data_activity = array(
@@ -116,7 +115,7 @@ class ActivityController extends Controller
             'Activity_Location' => $request->input('Activity_Location'),
             'Activity_Detail' => $request->input('Activity_Detail'),
             'Activity_Title' => $request->input('Activity_Title'),
-            'Activity_End' => $request->input('Activity_End'),
+          
            
         );
         $Activity_Picture = $request->file('Activity_Picture');
