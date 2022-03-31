@@ -150,7 +150,7 @@ Route::group(['middleware' => 'auth:sanctum'], function(){
         Route::get("cv/id/{id}",[\App\Http\Controllers\Api\CvController::class,'show']);
         Route::put("cv/update/{id}",[\App\Http\Controllers\Api\CvController::class,'update']);
         Route::delete("cv/delete/{id}",[\App\Http\Controllers\Api\CvController::class,'destroy']);  
-        
+
         // Activity join
         Route::get("activityjoin",[\App\Http\Controllers\Api\ActivityjoinController::class,'index']);
         Route::get("activityjoin/id/{id}",[\App\Http\Controllers\Api\ActivityjoinController::class,'show']);
@@ -160,7 +160,16 @@ Route::group(['middleware' => 'auth:sanctum'], function(){
         Route::get("activityjoin/email/{Email}",[\App\Http\Controllers\Api\ActivityjoinController::class,'search']);
         Route::get("activityjoin/titile/{Activity_Title}",[\App\Http\Controllers\Api\ActivityjoinController::class,'search1']);
 
+        // Route About
+        Route::get("about",[\App\Http\Controllers\Api\AboutController::class,'index']);
+        Route::get("about/id/{id}",[\App\Http\Controllers\Api\AboutController::class,'show']);
+        Route::get("about/{Topic}",[\App\Http\Controllers\Api\AboutController::class,'search']);
+        Route::post("about/create",[\App\Http\Controllers\Api\AboutController::class,'store']);
+        Route::put("about/update/{id}",[\App\Http\Controllers\Api\AboutController::class,'update']);
+        Route::delete("about/delete/{id}",[\App\Http\Controllers\Api\AboutController::class,'destroy']);
 });
+
+
 
 
 Route::post("register",[\App\Http\Controllers\AuthController::class,'register']);

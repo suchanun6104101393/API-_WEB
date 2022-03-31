@@ -36,6 +36,7 @@ body {font-size:16px;}
     <a href="#CV" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">CV </a>
     <a href="#Activity" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Activity(กิจกรรม) </a>
     <a href="#Activityjoin" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Activityjoin(เข้าร่วมกิจกรรม)</a>
+    <a href="#About" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">About(เกี่ยวกับ)</a>
   </div>
 </nav>
 <!-- Top menu on small screens -->
@@ -891,6 +892,53 @@ body {font-size:16px;}
     <tr>
       <td></td>
       <td>activityjoin/delete/{id}</td>
+      <td><button class="w3-button w3-red">Delete</button></td>
+    </tr>
+  </table>
+  </div>
+  </div>
+
+     <!-- About -->
+     <div class="w3-container" id="About" style="margin-top:75px">
+      <h2 class="w3-xxxlarge w3-text-grey"><b>About.</b></h2>
+      <hr style="width:50px;border:5px solid blue" class="w3-round">
+      <div class="w3-half">
+    <table class="w3-table w3-striped w3-bordered">
+    <tr>
+      <th>Host</th>
+      <th>Path</th>
+      <th>Method</th>
+    </tr>
+    <tr>
+      <td>https://wwwdev.csmju.com/api/</td>
+      <td>activity</td>
+      <td><a href="https://wwwdev.csmju.com/api/about" button class="w3-button w3-yellow">Get</button></td>
+    </tr>
+
+    <tr>
+      <td></td>
+      <td>about/id/{id}</td>
+      <td><button class="w3-button w3-yellow">Get</button></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>about/{Topic}</td>
+      <td><button class="w3-button w3-yellow">Get</button></td>
+    </tr>
+    
+    <tr>
+      <td></td>
+      <td>about/create</td>
+      <td><button class="w3-button w3-green">Post</button></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>about/update/{id}</td>
+      <td><button class="w3-button w3-purple">Put</button></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>about/delete/{id}</td>
       <td><button class="w3-button w3-red">Delete</button></td>
     </tr>
   </table>

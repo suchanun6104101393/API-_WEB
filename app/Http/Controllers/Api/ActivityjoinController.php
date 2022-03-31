@@ -30,7 +30,7 @@ class ActivityjoinController extends Controller
         $request->validate([
             'nameTh' => 'required',
             'surnameTh' => 'required',
-            'EmailStudent' => 'required', 
+            'Email' => 'required', 
             'studentCode' => 'required', 
             'Activity_Start' => 'required', 
             'Status' => 'required', 
