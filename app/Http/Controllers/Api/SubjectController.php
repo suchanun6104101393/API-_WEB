@@ -32,29 +32,18 @@ class SubjectController extends Controller
             'Subject_NameEn' => 'required',
             'Subject_Code' => 'required',
             'Subject_Credit' => 'required',
-            'Subject_Detail' => 'required'
+            'Subject_Detail' => 'required',
+            'Subject_Term' => 'required'
+
         ]);
         return Subject::create($request->all());
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         return Subject::find($id);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         $subject = Subject::find($id);
@@ -62,12 +51,6 @@ class SubjectController extends Controller
         return $subject;
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         return Subject::destroy($id);
@@ -80,6 +63,10 @@ class SubjectController extends Controller
     public function search1($Subject_Code)
     {
         return Subject::where("Subject_Code","like","%".$Subject_Code."%")->get();
+    }
+    public function search2($Subject_Term)
+    {
+        return Subject::where("Subject_Term","like","%".$Subject_Term."%")->get();
     }
 
     

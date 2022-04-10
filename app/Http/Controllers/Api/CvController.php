@@ -27,6 +27,8 @@ class CvController extends Controller
             'BachelorDegree' => 'required',
             'MastersDegree' => 'required',
             'DoctoralDegree' => 'required',
+            'citizenId' => 'required',
+
         ]);
         return CV::create($request->all());
     }
@@ -65,5 +67,9 @@ class CvController extends Controller
     public function destroy($id)
     {
         return CV::destroy($id);
+    }
+    public function search($citizenId)
+    {
+        return CV::where("citizenId","like","%".$citizenId."%")->get();
     }
 }

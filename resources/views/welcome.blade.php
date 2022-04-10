@@ -717,7 +717,7 @@ body {font-size:16px;}
   </div>
  <!-- Borrow_Return -->
  <div class="w3-container" id="Borrow_Return" style="margin-top:75px">
-      <h2 class="w3-xxxlarge w3-text-grey"><b>Bookclassroom.</b></h2>
+      <h2 class="w3-xxxlarge w3-text-grey"><b>Borrow_Return.</b></h2>
       <hr style="width:50px;border:5px solid blue" class="w3-round">
       <div class="w3-half">
     <table class="w3-table w3-striped w3-bordered">

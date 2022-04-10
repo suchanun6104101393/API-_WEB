@@ -84,6 +84,7 @@ Route::group(['middleware' => 'auth:sanctum'], function(){
         Route::delete("subject/delete/{id}",[\App\Http\Controllers\Api\SubjectController::class,'destroy']); 
         Route::get("subject/{Subject_Detail}",[\App\Http\Controllers\Api\SubjectController::class,'search']);
         Route::get("subject/code/{Subject_Code}",[\App\Http\Controllers\Api\SubjectController::class,'search1']);
+        Route::get("subject/term/{Subject_Term}",[\App\Http\Controllers\Api\SubjectController::class,'search2']);
 
         // Route Material
         Route::get("material",[\App\Http\Controllers\Api\MaterialController::class,'index']);
@@ -146,6 +147,7 @@ Route::group(['middleware' => 'auth:sanctum'], function(){
 
         //Route  CV
         Route::get("cv",[\App\Http\Controllers\Api\CvController::class,'index']);
+        Route::get("cv/{citizenId}",[\App\Http\Controllers\Api\CvController::class,'search']);
         Route::post("cv/create",[\App\Http\Controllers\Api\CvController::class,'store']);
         Route::get("cv/id/{id}",[\App\Http\Controllers\Api\CvController::class,'show']);
         Route::put("cv/update/{id}",[\App\Http\Controllers\Api\CvController::class,'update']);
@@ -167,9 +169,13 @@ Route::group(['middleware' => 'auth:sanctum'], function(){
         Route::post("about/create",[\App\Http\Controllers\Api\AboutController::class,'store']);
         Route::put("about/update/{id}",[\App\Http\Controllers\Api\AboutController::class,'update']);
         Route::delete("about/delete/{id}",[\App\Http\Controllers\Api\AboutController::class,'destroy']);
+
+        // Route CheckLogin
+        Route::get("checklogin",[\App\Http\Controllers\Api\CheckLoginController::class,'index']);
+        Route::delete("checklogin/delete/{id}",[\App\Http\Controllers\Api\CheckLoginController::class,'destroy']);
+        Route::get("checklogin/id/{id}",[\App\Http\Controllers\Api\CheckLoginController::class,'show']);
+      
 });
-
-
 
 
 Route::post("register",[\App\Http\Controllers\AuthController::class,'register']);
