@@ -110,12 +110,6 @@ Route::group(['middleware' => 'auth:sanctum'], function(){
         Route::delete("banner/delete/{id}",[\App\Http\Controllers\Api\BannerController::class,'destroy']);  
 
 
-        //Route  ActivityPic
-        Route::get("activitypic",[\App\Http\Controllers\Api\ActivityPicController::class,'index']);
-        Route::get("activitypic/{id}",[\App\Http\Controllers\Api\ActivityPicController::class,'show']);  
-        Route::post("activitypic/create",[\App\Http\Controllers\Api\ActivityPicController::class,'store']); 
-        Route::delete("activitypic/delete/{id}",[\App\Http\Controllers\Api\ActivityPicController::class,'destroy']); 
-
         //Route  Student
         Route::get("student",[\App\Http\Controllers\Api\StudentController::class,'index']);
         Route::get("student/id/{id}",[\App\Http\Controllers\Api\StudentController::class,'show']);  
@@ -172,10 +166,19 @@ Route::group(['middleware' => 'auth:sanctum'], function(){
 
         // Route CheckLogin
         Route::get("checklogin",[\App\Http\Controllers\Api\CheckLoginController::class,'index']);
+        Route::get("checklogin/code/{studentCode}",[\App\Http\Controllers\Api\CheckLoginController::class,'search']);
         Route::delete("checklogin/delete/{id}",[\App\Http\Controllers\Api\CheckLoginController::class,'destroy']);
         Route::get("checklogin/id/{id}",[\App\Http\Controllers\Api\CheckLoginController::class,'show']);
-      
+        Route::post("checklogin/create",[\App\Http\Controllers\Api\CheckLoginController::class,'store']);
+ \
+ 
+        // Route Album      
+        Route::get("album/activity",[\App\Http\Controllers\Api\AlbumActivityController::class,'index']);
+        Route::post("album/activity/create",[\App\Http\Controllers\Api\AlbumActivityController::class,'store']);
+        Route::get("album/activity/id/{id}",[\App\Http\Controllers\Api\AlbumActivityController::class,'show']);
+        Route::delete("album/activity/delete/{id}",[\App\Http\Controllers\Api\AlbumActivityController::class,'destroy']);
 });
+
 
 
 Route::post("register",[\App\Http\Controllers\AuthController::class,'register']);

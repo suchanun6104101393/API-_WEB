@@ -28,6 +28,7 @@ class CvController extends Controller
             'MastersDegree' => 'required',
             'DoctoralDegree' => 'required',
             'citizenId' => 'required',
+            'expertise' => 'required',
 
         ]);
         return CV::create($request->all());

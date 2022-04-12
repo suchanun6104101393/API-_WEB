@@ -10,52 +10,41 @@ class CheckLoginController extends Controller
 {
     public function index()
     {
-        $chcklogin = CheckLogin::all();
+        $chcklogin = CheckLogin::paginate(25);
         return response()->json($chcklogin);
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            
+            'Username' => 'required',
+            'type' => 'required',
+            'Date' => 'required',
+            'Device' => 'required',
+            'studentCode' => 'required',
+
+        ]);
+        return CheckLogin::create($request->all());
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function show($id)
     {
         return CheckLogin::find($id);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         return CheckLogin::destroy($id);
+    }
+    public function search($studentCode)
+    {
+        return CheckLogin::where("studentCode","like","%".$studentCode."%")
+        ->paginate(25);
     }
 }
